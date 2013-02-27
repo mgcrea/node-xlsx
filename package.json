@@ -1,0 +1,25 @@
+{
+  "name": "node-xlsx",
+  "author": "Olivier Louvignes",
+  "license": "MIT",
+  "version": "0.2.1",
+  "description": "Node.js excel parser & builder",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mgcrea/node-xlsx.git"
+  },
+  "keywords": [
+    "excel",
+    "xml"
+  ],
+  "dependencies": {
+    "debug": ">= 0.7.2"
+  },
+  "devDependencies": {
+    "nodeunit": ">= 0.7.4"
+  }
+}
