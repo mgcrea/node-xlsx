@@ -35,7 +35,7 @@ var buffer = xlsx.build({worksheets: [
 Testing
 -------
 
-node-plist-native is tested with `nodeunit`.
+`node-xlsx` is tested with `nodeunit`.
 
 >
 	npm install --dev
