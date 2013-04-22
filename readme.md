@@ -3,6 +3,8 @@
 
 Excel parser/builder that relies on [xlsx.js](https://raw.github.com/stephen-hardy/xlsx.js) (Microsoft Office Extensible File License), this package had to be released under the same restrictive license. Please read it carefully.
 
+An opensource alternative is currently being developped by [Niggler](https://github.com/Niggler/js-xlsx), reader-only for now.
+
 Quick start
 -----------
 
