@@ -2,7 +2,7 @@
   "name": "node-xlsx",
   "author": "Olivier Louvignes",
   "license": "Microsoft Office Extensible File License",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Node.js excel parser & builder",
   "main": "index.js",
   "scripts": {
