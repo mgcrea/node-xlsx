@@ -1,7 +1,8 @@
 **New Features Added:**
 
-* More customizable options.
+* More customizable options like font name and color.
 * Limited support for colSpan AND rowSpan.
+* Forced row height and column width.
 
 ---
 
