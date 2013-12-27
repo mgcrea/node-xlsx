@@ -1,3 +1,10 @@
+**New Features Added:**
+
+* More customizable options.
+* Limited support for colSpan AND rowSpan.
+
+---
+
 [node-xlsx](http://mgcrea.github.com/node-xlsx) [![Build Status](https://secure.travis-ci.org/mgcrea/node-xlsx.png?branch=master)](http://travis-ci.org/#!/mgcrea/node-xlsx)
 =================
 
