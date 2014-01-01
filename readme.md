@@ -4,6 +4,7 @@
 * Limited support for colSpan AND rowSpan.
 * Forced row height and column width.
 * Added textRotation.
+* Added page scale and sheet view option.
 
 ---
 
