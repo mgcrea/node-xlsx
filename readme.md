@@ -1,3 +1,10 @@
+[node-xlsx](http://mgcrea.github.com/node-xlsx) [![Build Status](https://secure.travis-ci.org/mgcrea/node-xlsx.png?branch=master)](http://travis-ci.org/#!/mgcrea/node-xlsx)
+=================
+
+Excel parser/builder that relies on [xlsx.js](https://raw.github.com/stephen-hardy/xlsx.js) (Microsoft Office Extensible File License), this package had to be released under the same restrictive license. Please read it carefully.
+
+An opensource alternative is currently being developped by [Niggler](https://github.com/Niggler/js-xlsx), reader-only for now.
+
 **New Features Added:**
 
 * More customizable options like font name and color.
@@ -5,15 +12,6 @@
 * Forced row height and column width.
 * Added textRotation.
 * Added page scale and sheet view option.
-
----
-
-[node-xlsx](http://mgcrea.github.com/node-xlsx) [![Build Status](https://secure.travis-ci.org/mgcrea/node-xlsx.png?branch=master)](http://travis-ci.org/#!/mgcrea/node-xlsx)
-=================
-
-Excel parser/builder that relies on [xlsx.js](https://raw.github.com/stephen-hardy/xlsx.js) (Microsoft Office Extensible File License), this package had to be released under the same restrictive license. Please read it carefully.
-
-An opensource alternative is currently being developped by [Niggler](https://github.com/Niggler/js-xlsx), reader-only for now.
 
 Quick start
 -----------
