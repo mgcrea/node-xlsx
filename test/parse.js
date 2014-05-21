@@ -12,7 +12,15 @@ var log = function() {
 var plist = require('../index');
 
 module.exports.parse = function(assert) {
+  basicTest(assert);
+  noInfoTest(assert);
 
+  assert.done();
+
+};
+
+
+var basicTest = function basicTest(assert) {
   var fixture = JSON.parse(fs.readFileSync(__dirname + '/fixtures/test.json'));
   var filename = __dirname + '/fixtures/test.xlsx';
   var xlsObject;
@@ -26,7 +34,13 @@ module.exports.parse = function(assert) {
   xlsObject = plist.parse(fs.readFileSync(filename));
   assert.equal(!!(xlsObject && xlsObject.worksheets), true);
   assert.deepEqual(xlsObject.worksheets, fixture);
+}
 
-  assert.done();
+var noInfoTest = function noInfoTest(assert) {
+  var noInfoXls = __dirname + '/fixtures/test_no_info.xlsx';
 
-};
+  // parse file with missing info
+  assert.doesNotThrow(function() {
+    plist.parse(noInfoXls);
+  }, Error, 'Expected parse to not throw an error');
+}
