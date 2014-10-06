@@ -1,8 +1,8 @@
 {
   "name": "node-xlsx",
   "author": "Olivier Louvignes",
-  "license": "Microsoft Office Extensible File License",
-  "version": "0.4.0",
+  "license": "Apache License, Version 2.0",
+  "version": "0.5.0",
   "description": "Node.js excel parser & builder",
   "main": "index.js",
   "scripts": {
@@ -14,13 +14,13 @@
   },
   "keywords": [
     "excel",
-    "xml"
+    "xlsx"
   ],
   "dependencies": {
-    "debug": ">= 0.7.2",
-    "node-zip": "~1.0.1"
+    "lodash.defaults": "^2.4.1",
+    "xlsx": "^0.7.10"
   },
   "devDependencies": {
-    "nodeunit": ">= 0.7.4"
+    "nodeunit": "^0.7.4"
   }
 }
