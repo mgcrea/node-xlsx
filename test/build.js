@@ -18,7 +18,7 @@ module.exports.build = function(assert) {
   var xlsData;
 
   // build file
-  xlsData = xlsx.build({worksheets: fixture});
+  xlsData = xlsx.build(fixture);
   assert.equal(xlsData instanceof Buffer, true);
   assert.equal(xlsData.toString('base64').substr(0, 12), fs.readFileSync(filename).toString('base64').substr(0, 12));
   // fs.writeFileSync('/tmp/foo.xlsx', xlsData);

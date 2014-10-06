@@ -9,23 +9,21 @@ var log = function() {
   return util.log(util.inspect.call(null, args.length === 1 ? args[0] : args, false, null, true));
 };
 
-var xlsx = require('../index');
+var plist = require('../index');
 
 module.exports.parse = function(assert) {
 
-  var fixture = JSON.parse(fs.readFileSync(__dirname + '/fixtures/parsed.json'));
+  var fixture = JSON.parse(fs.readFileSync(__dirname + '/fixtures/test.json'));
   var filename = __dirname + '/fixtures/test.xlsx';
   var xlsObject;
 
   // parse file
-  xlsObject = xlsx.parse(filename);
-  assert.equal(!!(xlsObject && xlsObject.Sheets), true);
-  assert.deepEqual(xlsObject.Sheets, fixture);
+  xlsObject = plist.parse(filename);
+  assert.deepEqual(JSON.parse(JSON.stringify(xlsObject)), fixture);
 
   // parse buffer
-  xlsObject = xlsx.parse(fs.readFileSync(filename));
-  assert.equal(!!(xlsObject && xlsObject.Sheets), true);
-  assert.deepEqual(xlsObject.Sheets, fixture);
+  xlsObject = plist.parse(fs.readFileSync(filename));
+  assert.deepEqual(JSON.parse(JSON.stringify(xlsObject)), fixture);
 
   assert.done();
 
