@@ -21,6 +21,6 @@
     "xlsx": "^0.7.10"
   },
   "devDependencies": {
-    "nodeunit": "^0.7.4"
+    "nodeunit": "^0.9.0"
   }
 }

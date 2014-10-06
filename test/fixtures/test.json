@@ -1,30 +1,6 @@
 [
-  {
-    "name": "hello",
-    "data": [
-      [
-        {
-          "value": "A1",
-          "formatCode": "General"
-        },
-        {
-          "value": "B1",
-          "formatCode": "General"
-        }
-      ],
-      [
-        {
-          "value": "A2",
-          "formatCode": "General"
-        },
-        {
-          "value": "B2",
-          "formatCode": "General"
-        }
-      ]
-    ],
-    "table": false,
-    "maxCol": 2,
-    "maxRow": 2
-  }
+  [1, 2, 3],
+  [true, false, null, "sheetjs"],
+  ["foo", "bar", "2014-02-19T14:30Z", "0.3"],
+  ["baz", null, "qux"]
 ]

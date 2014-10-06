@@ -1,19 +1,7 @@
-[node-xlsx](http://mgcrea.github.com/node-xlsx) [![Build Status](https://secure.travis-ci.org/mgcrea/node-xlsx.png?branch=master)](http://travis-ci.org/#!/mgcrea/node-xlsx) (deprecated)
+[node-xlsx](http://mgcrea.github.com/node-xlsx) [![Build Status](https://secure.travis-ci.org/mgcrea/node-xlsx.png?branch=master)](http://travis-ci.org/#!/mgcrea/node-xlsx)
 =================
 
-**Note:** this module is deprecated in favor of [js-xlsx](https://github.com/SheetJS/js-xlsx). I do not plan to actively maintain this code.
-
----
-
-Excel parser/builder that relies on [xlsx.js](https://raw.github.com/stephen-hardy/xlsx.js) (Microsoft Office Extensible File License), this package had to be released under the same restrictive license. Please read it carefully.
-
-**New Features Added:**
-
-* More customizable options like font name and color.
-* Limited support for colSpan AND rowSpan.
-* Forced row height and column width.
-* Added textRotation.
-* Added page scale and sheet view option.
+Excel parser/builder that relies on [js-xlsx](https://github.com/SheetJS/js-xlsx).
 
 Quick start
 -----------
@@ -32,15 +20,8 @@ Building a plist from an object
 ``` javascript
 var xlsx = require('node-xlsx');
 
-var buffer = xlsx.build({worksheets: [
-  {"name":"mySheetName", "data":[
-    ["A1", "B1"],
-    [
-      {"value":"A2","formatCode":"General"},
-      {"value":"B2","formatCode":"General"}
-    ]
-  ]}
-]}); // returns a buffer
+var data = [[1,2,3],[true, false, null, 'sheetjs'],['foo','bar',new Date('2014-02-19T14:30Z'), '0.3'], ['baz', null, 'qux']];
+var buffer = xlsx.build({worksheets: [{name: "mySheetName", data: data}); // returns a buffer
 
 ```
 
@@ -69,25 +50,20 @@ Authors
 Copyright and license
 ---------------------
 
-  This license governs use of the accompanying software. If you use the software, you
-   accept this license. If you do not accept the license, do not use the software.
+  Copyright (C) 2012-2014  Olivier Louvignes
 
-  1. Definitions
-   The terms "reproduce," "reproduction," "derivative works," and "distribution" have the
-   same meaning here as under U.S. copyright law.
-   A "contribution" is the original software, or any additions or changes to the software.
-   A "contributor" is any person that distributes its contribution under this license.
-   "Licensed patents" are a contributor's patent claims that read directly on its contribution.
-   "Excluded Products” are software products or components, or web-based or hosted services, that primarily perform the same general functions as any of the following software applications: Microsoft Office, Word, Excel, PowerPoint, Outlook, OneNote, Publisher, SharePoint, or Access.
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
 
-  2. Grant of Rights
-   (A) Copyright Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, each contributor grants you a non-exclusive, worldwide, royalty-free copyright license to reproduce its contribution, prepare derivative works of its contribution, and distribute its contribution or any derivative works that you create.
-   (B) Patent Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, each contributor grants you a non-exclusive, worldwide, royalty-free license under its licensed patents to make, have made, use, sell, offer for sale, import, and/or otherwise dispose of its contribution in the software or derivative works of the contribution in the software.
+         http://www.apache.org/licenses/LICENSE-2.0
 
-  3. Conditions and Limitations
-   (A) No Trademark License- This license does not grant you rights to use any contributors' name, logo, or trademarks.
-   (B) If you bring a patent claim against any contributor over patents that you claim are infringed by the software, your patent license from such contributor to the software ends automatically.
-   (C) If you distribute any portion of the software, you must retain all copyright, patent, trademark, and attribution notices that are present in the software.
-   (D) If you distribute any portion of the software in source code form, you may do so only under this license by including a complete copy of this license with your distribution. If you distribute any portion of the software in compiled or object code form, you may only do so under a license that complies with this license.
-   (E) The software is licensed "as-is." You bear the risk of using it. The contributors give no express warranties, guarantees or conditions. You may have additional consumer rights under your local laws which this license cannot change. To the extent permitted under your local laws, the contributors exclude the implied warranties of merchantability, fitness for a particular purpose and non-infringement.
-   (F) Platform Limitation- The licenses granted in sections 2(A) & 2(B) extend only to the software or derivative works that (1) are run on a Microsoft Windows operating system product, and (2) are not Excluded Products.
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+  Except where noted, this license applies to any and all software programs and associated documentation files created by the Original Author and distributed with the Software:
+
+  'node-xlsx.js' is a modified version of SheetJS gist examples, Copyright (c) SheetJS.
