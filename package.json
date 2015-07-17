@@ -17,11 +17,11 @@
     "xlsx"
   ],
   "dependencies": {
-    "lodash.defaults": "^2.4.1",
-    "lodash.map": "^2.4.1",
-    "xlsx": "^0.7.10"
+    "lodash.defaults": "^3.1.2",
+    "lodash.map": "^3.1.4",
+    "xlsx": "^0.8.0"
   },
   "devDependencies": {
-    "nodeunit": "^0.9.0"
+    "nodeunit": "^0.9.1"
   }
 }
