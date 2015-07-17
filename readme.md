@@ -1,6 +1,6 @@
 # node-xlsx
 
-[![Build Status](http://img.shields.io/travis/mgcrea/node-xlsx/master.svg?style=flat)](http://travis-ci.org/mgcrea/node-xlsx) [![npm](https://img.shields.io/npm/mgcrea/node-xlsx.svg?style=flat)](https://www.npmjs.com/package/node-xlsx) [![devDependency Status](http://img.shields.io/david/dev/mgcrea/node-xlsx.svg?style=flat)](https://david-dm.org/mgcrea/node-xlsx)
+[![Build Status](http://img.shields.io/travis/mgcrea/node-xlsx/master.svg?style=flat)](http://travis-ci.org/mgcrea/node-xlsx) [![npm](https://img.shields.io/npm/dm/node-xlsx.svg?style=flat)](https://www.npmjs.com/package/node-xlsx) [![devDependency Status](http://img.shields.io/david/dev/mgcrea/node-xlsx.svg?style=flat)](https://david-dm.org/mgcrea/node-xlsx)
 
 Excel parser/builder that relies on [js-xlsx](https://github.com/SheetJS/js-xlsx).
 
