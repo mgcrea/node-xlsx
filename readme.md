@@ -22,7 +22,7 @@ var obj = xlsx.parse(fs.readFileSync(__dirname + '/myFile.xlsx')); // parses a b
 
 ```
 
-Building a plist from an object
+Building a xlsx from an object
 ```js
 var xlsx = require('node-xlsx');
 
