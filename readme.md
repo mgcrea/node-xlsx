@@ -1,4 +1,4 @@
-[node-xlsx](http://mgcrea.github.com/node-xlsx) [![Build Status](https://secure.travis-ci.org/mgcrea/node-xlsx.png?branch=master)](http://travis-ci.org/#!/mgcrea/node-xlsx)
+node-xlsx [![Build Status](https://secure.travis-ci.org/mgcrea/node-xlsx.png?branch=master)](http://travis-ci.org/#!/mgcrea/node-xlsx)
 =================
 
 Excel parser/builder that relies on [js-xlsx](https://github.com/SheetJS/js-xlsx).
