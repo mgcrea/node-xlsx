@@ -58,6 +58,8 @@ Please submit all pull requests the against master branch. If your unit test con
 
 ## Copyright and license
 
+[Apache License 2.0](https://spdx.org/licenses/Apache-2.0.html)
+
 ```
 Copyright (C) 2012-2014  Olivier Louvignes
 

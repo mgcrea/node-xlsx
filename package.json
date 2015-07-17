@@ -1,7 +1,7 @@
 {
   "name": "node-xlsx",
   "author": "Olivier Louvignes",
-  "license": "Apache License, Version 2.0",
+  "license": "Apache-2.0",
   "version": "0.6.0",
   "description": "Node.js excel parser & builder",
   "main": "lib/node-xlsx.js",
