@@ -3,10 +3,14 @@ node-xlsx [![Build Status](https://secure.travis-ci.org/mgcrea/node-xlsx.png?bra
 
 Excel parser/builder that relies on [js-xlsx](https://github.com/SheetJS/js-xlsx).
 
+Install
+=======
+    npm install excel node-xlsx
+
 Quick start
 -----------
 
-Parsing a xlsx from file/buffer
+Parsing a xlsx from file/buffer, outputs an array of arrays
 ``` javascript
 var xlsx = require('node-xlsx');
 
