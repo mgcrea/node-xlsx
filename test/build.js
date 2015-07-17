@@ -9,7 +9,7 @@ var log = function() {
   return util.log(util.inspect.call(null, args.length === 1 ? args[0] : args, false, null, true));
 };
 
-var xlsx = require('../index');
+var xlsx = require('../lib/node-xlsx');
 
 module.exports.build = function(assert) {
 

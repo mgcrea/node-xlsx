@@ -9,7 +9,7 @@ var log = function() {
   return util.log(util.inspect.call(null, args.length === 1 ? args[0] : args, false, null, true));
 };
 
-var plist = require('../index');
+var xlsx = require('../lib/node-xlsx');
 
 module.exports.parse = function(assert) {
 
@@ -18,11 +18,11 @@ module.exports.parse = function(assert) {
   var xlsObject;
 
   // parse file
-  xlsObject = plist.parse(filename);
+  xlsObject = xlsx.parse(filename);
   assert.deepEqual(JSON.parse(JSON.stringify(xlsObject)), fixture);
 
   // parse buffer
-  xlsObject = plist.parse(fs.readFileSync(filename));
+  xlsObject = xlsx.parse(fs.readFileSync(filename));
   assert.deepEqual(JSON.parse(JSON.stringify(xlsObject)), fixture);
 
   assert.done();
