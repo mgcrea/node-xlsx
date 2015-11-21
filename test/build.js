@@ -14,6 +14,13 @@ var xlsx = require('../lib/node-xlsx');
 module.exports.build = function(assert) {
 
   var fixture = JSON.parse(fs.readFileSync(__dirname + '/fixtures/test.json'));
+
+  fixture[0].data.push([
+    {t : 'n', z : xlsx.XLSX.SSF._table[4], v : 1234567 },
+    {t : 'n', z : xlsx.XLSX.SSF._table[38], v : -1234567 },
+    {t : 'v', v : xlsx.XLSX.SSF.format('$#,##0.00', 1234567) }
+  ]);
+
   var filename = __dirname + '/fixtures/test.xlsx';
   var xlsData;
 
