@@ -1,7 +1,7 @@
 {
   "name": "node-xlsx",
-  "author": "Olivier Louvignes",
-  "version": "0.6.0",
+  "author": "Olivier Louvignes <olivier@mg-crea.com>",
+  "version": "0.7.0",
   "description": "NodeJS Excel files parser & builder",
   "main": "lib/index.js",
   "scripts": {
@@ -14,7 +14,6 @@
     "compile:watch": "npm run compile -- -w",
     "prepublish": "npm run compile"
   },
-  "author": "Olivier Louvignes <olivier@mg-crea.com>",
   "repository": "github:mgcrea/node-xlsx",
   "license": "Apache-2.0",
   "dependencies": {
