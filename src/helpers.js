@@ -38,12 +38,15 @@ const buildSheetFromMatrix = (data, options = {}) => {
       }
       workSheet[cellRef] = cell;
     }
-    if (options['!cols']) {
-      workSheet['!cols'] = options['!cols'];
-    }
   }
   if (range.s.c < 1e7) {
     workSheet['!ref'] = XLSX.utils.encode_range(range);
+  }
+  if (options['!cols']) {
+    workSheet['!cols'] = options['!cols'];
+  }
+  if (options['!merges']) {
+    workSheet['!merges'] = options['!merges'];
   }
   return workSheet;
 };
