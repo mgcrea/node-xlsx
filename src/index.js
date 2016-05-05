@@ -20,7 +20,7 @@ export function build(worksheets, options = {}) {
   const workBook = new Workbook();
   worksheets.forEach(worksheet => {
     const name = worksheet.name || 'Sheet';
-    const data = buildSheetFromMatrix(worksheet.data || []);
+    const data = buildSheetFromMatrix(worksheet.data || [], options);
     workBook.SheetNames.push(name);
     workBook.Sheets[name] = data;
   });

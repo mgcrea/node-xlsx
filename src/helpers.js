@@ -11,7 +11,7 @@ const buildExcelDate = (value, is1904) => {
   return (epoch - originDate) / (864e5);
 };
 
-const buildSheetFromMatrix = (data) => {
+const buildSheetFromMatrix = (data, options = {}) => {
   const workSheet = {};
   const range = {s: {c: 1e7, r: 1e7}, e: {c: 0, r: 0}};
   for (let R = 0; R !== data.length; ++R) {
@@ -37,6 +37,9 @@ const buildSheetFromMatrix = (data) => {
         cell.t = 's';
       }
       workSheet[cellRef] = cell;
+    }
+    if (options['!cols']) {
+      workSheet['!cols'] = options['!cols'];
     }
   }
   if (range.s.c < 1e7) {
