@@ -1,4 +1,4 @@
-Copyright (C) 2012-2014  Olivier Louvignes
+Copyright (c) 2012-2016  Olivier Louvignes
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,4 +14,4 @@ Copyright (C) 2012-2014  Olivier Louvignes
 
 Except where noted, this license applies to any and all software programs and associated documentation files created by the Original Author and distributed with the Software:
 
-'node-xlsx.js' is a modified version of SheetJS gist examples, Copyright (c) SheetJS.
+Inspired by SheetJS gist examples, Copyright (c) SheetJS.
