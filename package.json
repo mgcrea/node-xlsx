@@ -18,8 +18,6 @@
   "repository": "github:mgcrea/node-xlsx",
   "license": "Apache-2.0",
   "dependencies": {
-    "lodash.defaults": "^4.0.1",
-    "lodash.map": "^4.3.0",
     "xlsx": "^0.8.0"
   },
   "devDependencies": {
