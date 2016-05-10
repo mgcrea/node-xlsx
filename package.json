@@ -12,8 +12,7 @@
     "lint": "eslint src/",
     "compile": "rimraf lib/*; babel src/ -d lib/ -s",
     "compile:watch": "npm run compile -- -w",
-    "prepublish": "npm run compile",
-    "install": "npm run compile"    
+    "prepublish": "npm run compile"
   },
   "repository": "github:mgcrea/node-xlsx",
   "license": "Apache-2.0",
