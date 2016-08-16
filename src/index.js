@@ -25,8 +25,5 @@ export function build(worksheets, options = {}) {
     workBook.Sheets[name] = data;
   });
   const excelData = XLSX.write(workBook, Object.assign({}, defaults, options));
-  if (!excelData) {
-    return false;
-  }
-  return new Buffer(excelData, 'binary');
+  return excelData instanceof Buffer ? excelData : new Buffer(excelData, 'binary');
 }
