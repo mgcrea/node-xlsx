@@ -12,6 +12,7 @@ describe('node-xlsx builder', () => {
     const result = buildXSLX(worksheets);
     expect(result).toBeA(Buffer);
     // Only check the ten first bytes
-    expect(result.slice(0, 10)).toEqual(expected.slice(0, 10));
+    expect(result.slice(0, 10).toString())
+      .toEqual(expected.slice(0, 10).toString());
   });
 });
