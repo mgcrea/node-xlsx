@@ -3,6 +3,7 @@ sudo: false
 node_js:
   - "4"
   - "stable"
+  - "0.12"
 
 before_script:
   - date --rfc-2822
