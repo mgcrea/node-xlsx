@@ -14,8 +14,13 @@ const buildExcelDate = (value, is1904) => {
 const buildSheetFromMatrix = (data, options = {}) => {
   const workSheet = {};
   const range = {s: {c: 1e7, r: 1e7}, e: {c: 0, r: 0}};
+
+  if (!Array.isArray(data)) throw new Error('sheet data is not array');
+
   for (let R = 0; R !== data.length; ++R) {
     for (let C = 0; C !== data[R].length; ++C) {
+      if (!Array.isArray(data[R])) throw new Error(`${R}th row data is not array`);
+
       if (range.s.r > R) range.s.r = R;
       if (range.s.c > C) range.s.c = C;
       if (range.e.r < R) range.e.r = R;
