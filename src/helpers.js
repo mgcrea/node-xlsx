@@ -28,7 +28,7 @@ const buildSheetFromMatrix = (data, options = {}) => {
       if (data[R][C] === null) {
         continue; // eslint-disable-line
       }
-      const cell = {v: data[R][C]};
+      const cell = data[R][C].v ? data[R][C] : {v: data[R][C]};
       const cellRef = XLSX.utils.encode_cell({c: C, r: R});
       if (isNumber(cell.v)) {
         cell.t = 'n';
