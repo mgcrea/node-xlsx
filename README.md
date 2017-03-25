@@ -31,7 +31,7 @@ import xlsx from 'node-xlsx';
 const data = [[1, 2, 3], [true, false, null, 'sheetjs'], ['foo', 'bar', new Date('2014-02-19T14:30Z'), '0.3'], ['baz', null, 'qux']];
 var buffer = xlsx.build([{name: "mySheetName", data: data}]); // Returns a buffer
 // Write to a file with no return value
-xlsx.build([name: "mySheetName", data: data], {type: "file", file: `${__dirname}/myFile.xlsx`});
+xlsx.build([{name: "mySheetName", data: data}], {type: "file", file: `${__dirname}/myFile.xlsx`});
 ```
 
 ### Contributing
