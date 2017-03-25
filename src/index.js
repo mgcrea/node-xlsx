@@ -25,7 +25,10 @@ export function build(worksheets, options = {}) {
     workBook.Sheets[name] = data;
   });
   const excelData = XLSX.write(workBook, Object.assign({}, defaults, options));
-  return excelData instanceof Buffer ? excelData : new Buffer(excelData, 'binary');
+  // when write to file(.xlsx, .xlsm...)
+  // the xlsx call fs.writeFileSync and return it(undefined)
+  // so this will throw an error for the first argument for new Buffer() can't be undefined
+  return excelData instanceof Buffer ? excelData : new Buffer(excelData || '', 'binary');
 }
 
 export default {parse, build};
