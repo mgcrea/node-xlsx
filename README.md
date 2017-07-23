@@ -1,9 +1,14 @@
 # Node XLSX
 
-[![npm version](https://img.shields.io/npm/v/node-xlsx.svg?style=flat)](https://www.npmjs.com/package/node-xlsx) [![license](https://img.shields.io/github/license/mgcrea/node-xlsx.svg?style=flat)](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)) [![build status](http://img.shields.io/travis/mgcrea/node-xlsx/master.svg?style=flat)](http://travis-ci.org/mgcrea/node-xlsx) [![dependencies status](https://img.shields.io/david/mgcrea/node-xlsx.svg?style=flat)](https://david-dm.org/mgcrea/node-xlsx) [![devDependencies status](https://img.shields.io/david/dev/mgcrea/node-xlsx.svg?style=flat)](https://david-dm.org/mgcrea/node-xlsx#info=devDependencies) [![coverage status](http://img.shields.io/codeclimate/coverage/github/mgcrea/node-xlsx.svg?style=flat)](https://codeclimate.com/github/mgcrea/node-xlsx) [![climate status](https://img.shields.io/codeclimate/github/mgcrea/node-xlsx.svg?style=flat)](https://codeclimate.com/github/mgcrea/node-xlsx)
+[![npm version](https://img.shields.io/npm/v/node-xlsx.svg?style=flat)](https://www.npmjs.com/package/node-xlsx)
+[![license](https://img.shields.io/github/license/mgcrea/node-xlsx.svg?style=flat)](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))
+[![build status](http://img.shields.io/travis/mgcrea/node-xlsx/master.svg?style=flat)](http://travis-ci.org/mgcrea/node-xlsx)
+[![dependencies status](https://img.shields.io/david/mgcrea/node-xlsx.svg?style=flat)](https://david-dm.org/mgcrea/node-xlsx)
+[![devDependencies status](https://img.shields.io/david/dev/mgcrea/node-xlsx.svg?style=flat)](https://david-dm.org/mgcrea/node-xlsx#info=devDependencies)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5bbea5e7b2084c2586e5599cda6aefc8)](https://www.codacy.com/app/mgcrea/node-xlsx?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mgcrea/node-xlsx&amp;utm_campaign=Badge_Grade)
+[![npm downloads](https://img.shields.io/npm/dm/node-xlsx.svg)](https://www.npmjs.com/package/node-xlsx)
 
 Excel file parser/builder that relies on [js-xlsx](https://github.com/SheetJS/js-xlsx).
-
 
 
 ## Usage
@@ -14,7 +19,7 @@ Excel file parser/builder that relies on [js-xlsx](https://github.com/SheetJS/js
 
 ```js
 import xlsx from 'node-xlsx';
-// Or var xlsx = require('node-xlsx').default; 
+// Or var xlsx = require('node-xlsx').default;
 
 // Parse a buffer
 const workSheetsFromBuffer = xlsx.parse(fs.readFileSync(`${__dirname}/myFile.xlsx`));
