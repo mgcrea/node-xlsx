@@ -17,8 +17,8 @@ const buildSheetFromMatrix = (data, options = {}) => {
 
   if (!Array.isArray(data)) throw new Error('sheet data is not array');
 
-  for (let R = 0; R !== data.length; ++R) {
-    for (let C = 0; C !== data[R].length; ++C) {
+  for (let R = 0; R !== data.length; R += 1) {
+    for (let C = 0; C !== data[R].length; C += 1) {
       if (!Array.isArray(data[R])) throw new Error(`${R}th row data is not array`);
 
       if (range.s.r > R) range.s.r = R;
