@@ -2,5 +2,7 @@ node_modules/
 lib/
 .DS_Store
 *.log
+yarn.lock
+.tmp/
 .nyc_output/
 coverage/
