@@ -1,12 +1,13 @@
 {
-  "extends": "airbnb/base",
+  "extends": "./../.eslintrc",
   "parser": "babel-eslint",
   "env": {
-    mocha: true
+    "jest": true,
+    "jasmine": true
   },
   "rules": {
-    "object-curly-spacing": [2, "never"],
-    "comma-dangle": [2, "never"],
-    "no-unused-vars": 1
+    "func-names": "off",
+    "no-underscore-dangle": "off",
+    "import/no-extraneous-dependencies": "off"
   }
 }
