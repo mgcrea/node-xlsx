@@ -18,4 +18,10 @@ describe('node-xlsx parser', () => {
     const result = JSON.parse(JSON.stringify(parseXSLX(file)));
     expect(result).toEqual(expected);
   });
+  it('should properly parse an XLSX file with date field', () => {
+    const expected = JSON.parse(fs.readFileSync(`${__dirname}/../fixtures/dateField.json`));
+    const file = `${__dirname}/../fixtures/dateField.xlsx`;
+    const result = JSON.parse(JSON.stringify(parseXSLX(file, {raw: false})));
+    expect(result).toEqual(expected);
+  });
 });
