@@ -6,6 +6,7 @@
 [![dependencies status](https://img.shields.io/david/mgcrea/node-xlsx.svg?style=flat)](https://david-dm.org/mgcrea/node-xlsx)
 [![devDependencies status](https://img.shields.io/david/dev/mgcrea/node-xlsx.svg?style=flat)](https://david-dm.org/mgcrea/node-xlsx#info=devDependencies)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5bbea5e7b2084c2586e5599cda6aefc8)](https://www.codacy.com/app/mgcrea/node-xlsx?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mgcrea/node-xlsx&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/5bbea5e7b2084c2586e5599cda6aefc8)](https://www.codacy.com/app/mgcrea/node-xlsx?utm_source=github.com&utm_medium=referral&utm_content=mgcrea/node-xlsx&utm_campaign=Badge_Coverage)
 [![npm downloads](https://img.shields.io/npm/dm/node-xlsx.svg)](https://www.npmjs.com/package/node-xlsx)
 
 Excel file parser/builder that relies on [js-xlsx](https://github.com/SheetJS/js-xlsx).
