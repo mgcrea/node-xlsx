@@ -43,7 +43,7 @@ const buildSheetFromMatrix = (data, options = {}) => {
       } else {
         cell.t = 's';
       }
-      if (isNumber(cell.z)) cell.z = XLSX.SSF._table[cell.z];
+      if (isNumber(cell.z)) cell.z = XLSX.SSF._table[cell.z]; // eslint-disable-line no-underscore-dangle
       workSheet[cellRef] = cell;
     }
   }
