@@ -3,6 +3,8 @@ import XLSX from 'xlsx';
 const isBoolean = maybeBoolean => typeof maybeBoolean === 'boolean';
 const isNumber = maybeNumber => typeof maybeNumber === 'number';
 const isString = maybeString => typeof maybeString === 'string';
+const isObject = maybeObject => maybeObject !== null && typeof maybeObject === 'object';
+const isCellDescriptor = maybeCell => isObject(maybeCell) && 'v' in maybeCell;
 
 const originDate = new Date(Date.UTC(1899, 11, 30));
 
@@ -28,7 +30,7 @@ const buildSheetFromMatrix = (data, options = {}) => {
       if (data[R][C] === null) {
         continue; // eslint-disable-line
       }
-      const cell = {v: data[R][C]};
+      const cell = isCellDescriptor(data[R][C]) ? data[R][C] : {v: data[R][C]};
       const cellRef = XLSX.utils.encode_cell({c: C, r: R});
       if (isNumber(cell.v)) {
         cell.t = 'n';
@@ -37,10 +39,11 @@ const buildSheetFromMatrix = (data, options = {}) => {
       } else if (cell.v instanceof Date) {
         cell.t = 'n';
         cell.v = buildExcelDate(cell.v);
-        cell.z = XLSX.SSF._table[14]; // eslint-disable-line no-underscore-dangle
+        cell.z = cell.z || XLSX.SSF._table[14]; // eslint-disable-line no-underscore-dangle
       } else {
         cell.t = 's';
       }
+      if (isNumber(cell.z)) cell.z = XLSX.SSF._table[cell.z]; // eslint-disable-line no-underscore-dangle
       workSheet[cellRef] = cell;
     }
   }
@@ -56,4 +59,4 @@ const buildSheetFromMatrix = (data, options = {}) => {
   return workSheet;
 };
 
-export {buildSheetFromMatrix, isBoolean, isNumber, isString};
+export {buildSheetFromMatrix, isBoolean, isNumber, isString, isObject, isCellDescriptor};
