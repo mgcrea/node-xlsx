@@ -51,6 +51,16 @@ var buffer = xlsx.build([{name: "mySheetName", data: data}], option); // Returns
 ```
   
 
+### Troubleshooting
+
+This library requires at lease nodeJS v4. For legacy versions, you can use this workaround before using the lib.
+
+```
+npm i --save object-assign
+Object.prototype.assign = require('object-assign');
+``` 
+
+
 ### Contributing
 
 Please submit all pull requests the against master branch. If your unit test contains javascript patches or features, you should include relevant unit tests. Thanks!
