@@ -28,7 +28,7 @@ const workSheetsFromBuffer = xlsx.parse(fs.readFileSync(`${__dirname}/myFile.xls
 const workSheetsFromFile = xlsx.parse(`${__dirname}/myFile.xlsx`);
 ```
 
-1. Building a xlsx
+2. Building a xlsx
 
 ```js
 import xlsx from 'node-xlsx';
@@ -36,8 +36,9 @@ import xlsx from 'node-xlsx';
 
 const data = [[1, 2, 3], [true, false, null, 'sheetjs'], ['foo', 'bar', new Date('2014-02-19T14:30Z'), '0.3'], ['baz', null, 'qux']];
 var buffer = xlsx.build([{name: "mySheetName", data: data}]); // Returns a buffer
+// Write to a file with no return value
+xlsx.build([{name: "mySheetName", data: data}], {type: "file", file: `${__dirname}/myFile.xlsx`});
 ```
-
 
 ### Contributing
 
@@ -46,14 +47,14 @@ Please submit all pull requests the against master branch. If your unit test con
 
 ### Available scripts
 
-| **Script** | **Description** |
-|----------|-------|
-| start | Alias of test:watch |
-| test | Run mocha unit tests |
-| test:watch | Run and watch mocha unit tests |
-| lint | Run eslint static tests |
-| compile | Compile the library |
-| compile:watch | Compile and watch the library |
+| **Script**    | **Description**                |
+| ------------- | ------------------------------ |
+| start         | Alias of test:watch            |
+| test          | Run mocha unit tests           |
+| test:watch    | Run and watch mocha unit tests |
+| lint          | Run eslint static tests        |
+| compile       | Compile the library            |
+| compile:watch | Compile and watch the library  |
 
 
 ## Authors
