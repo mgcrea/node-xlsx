@@ -38,7 +38,7 @@ const data = [[1, 2, 3], [true, false, null, 'sheetjs'], ['foo', 'bar', new Date
 var buffer = xlsx.build([{name: "mySheetName", data: data}]); // Returns a buffer
 ```
 
-  * Building a xlsx (spannig multiple rows `A1:A4` in all sheets)
+  * Building a xlsx (spannig multiple rows `A1:A4` if there is only one sheet)
 ```js
 import xlsx from 'node-xlsx';
 // Or var xlsx = require('node-xlsx').default;
