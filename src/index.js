@@ -20,7 +20,7 @@ export function build(worksheets, options = {}) {
   const workBook = new Workbook();
   worksheets.forEach((worksheet) => {
     const name = worksheet.name || 'Sheet';
-    const data = buildSheetFromMatrix(worksheet.data || [], options);
+    const data = buildSheetFromMatrix(worksheet.data || [],  worksheet.options ? worksheet.options : worksheets.length === 1 ? options || {} : {}); // If worksheet has options, use this one ; if there's only one worksheet, use global options (for retro-compatibility) 
     workBook.SheetNames.push(name);
     workBook.Sheets[name] = data;
   });
