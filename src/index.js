@@ -21,7 +21,7 @@ export function build(worksheets, options = {}) {
   worksheets.forEach((worksheet) => {
     const name = worksheet.name || 'Sheet';
     // If worksheet has options, use this one ; if there's only one worksheet, use global options (for retro-compatibility) 
-    const optionsLocal = {};
+    var optionsLocal = {};
     if(worksheet.options)
         optionsLocal = worksheet.options;
     else if(worksheets.length === 1 && options)
