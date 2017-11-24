@@ -10,7 +10,7 @@ describe('node-xlsx builder', () => {
     const expected = fs.readFileSync(`${__dirname}/../fixtures/test.xlsx`);
     const worksheets = JSON.parse(fs.readFileSync(`${__dirname}/../fixtures/test.json`));
     const result = buildXSLX(worksheets);
-    expect(result).toBeA(Buffer);
+    expect(result instanceof Buffer).toBeTruthy();
     // Only check the ten first bytes
     expect(result.slice(0, 10)).toEqual(expected.slice(0, 10));
   });

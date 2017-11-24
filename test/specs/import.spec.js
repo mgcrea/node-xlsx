@@ -3,9 +3,9 @@ import XSLX from './../../src';
 
 describe('node-xlsx import', () => {
   it('should get current object', () => {
-    expect(XSLX).toBeA(Object);
+    expect(typeof XSLX).toBe('object');
   });
   it('should has current keys', () => {
-    expect(XSLX).toIncludeKeys(['build', 'parse']);
+    expect(Object.keys(XSLX)).toEqual(['parse', 'build']);
   });
 });

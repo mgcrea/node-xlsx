@@ -15,7 +15,7 @@ describe('node-xlsx helper', () => {
 
     it('should not throw if data is valid array', () => {
       const notArrayData = [['a1'], ['b1']];
-      expect(() => buildSheetFromMatrix(notArrayData)).toNotThrow();
+      expect(typeof buildSheetFromMatrix(notArrayData)).toBe('object');
     });
 
   });
