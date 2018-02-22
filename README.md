@@ -13,7 +13,8 @@ Excel file parser/builder that relies on [js-xlsx](https://github.com/SheetJS/js
 
 
 ## Usage
-
+### Installation
+```npm install node-xlsx --save```
 ### Examples
 
 1. Parsing a xlsx from file/buffer, outputs an array of worksheets
