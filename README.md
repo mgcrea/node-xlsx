@@ -49,8 +49,24 @@ const option = {'!merges': [ range ]};
 
 var buffer = xlsx.build([{name: "mySheetName", data: data}], option); // Returns a buffer
 ```
-  
 
+3. Streaming built file to the client
+
+```js
+let tmpExcel = `filename.xlsx`
+fs.writeFile(tmpExcel, buffer, {
+    encoding: 'utf8'
+}, (err) => {
+    if (err) return
+})
+res.setHeader('Content-disposition', 'attachment; filename="' + tmpExcel + '"')
+res.setHeader('Content-Type', 'application/octet-stream')
+// pipe generated file to the response
+fs.createReadStream(tmpExcel).pipe(res)
+// delete file after sending to client
+fs.unlinkSync(tmpExcel)
+// cheers! all done!
+```
 ### Troubleshooting
 
 This library requires at lease nodeJS v4. For legacy versions, you can use this workaround before using the lib.
