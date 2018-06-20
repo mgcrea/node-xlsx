@@ -17,15 +17,16 @@
   "repository": "github:mgcrea/node-xlsx",
   "license": "Apache-2.0",
   "dependencies": {
+    "buffer-from": "^1.1.0",
     "xlsx": "^0.12.4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.2",
-    "babel-preset-env": "^1.7.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-function-bind": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "codacy-coverage": "^2.1.0",
     "debug-utils": "^0.3.0",

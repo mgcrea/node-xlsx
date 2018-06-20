@@ -1,5 +1,6 @@
 
 import XLSX from 'xlsx';
+import bufferFrom from 'buffer-from';
 import {buildSheetFromMatrix, isString} from './helpers';
 import Workbook from './workbook';
 
@@ -25,7 +26,7 @@ export function build(worksheets, options = {}) {
     workBook.Sheets[name] = data;
   });
   const excelData = XLSX.write(workBook, Object.assign({}, defaults, options));
-  return excelData instanceof Buffer ? excelData : Buffer.from(excelData, 'binary');
+  return excelData instanceof Buffer ? excelData : bufferFrom(excelData, 'binary');
 }
 
 export default {parse, build};
