@@ -26,7 +26,7 @@ export function build(worksheets, options = {}) {
     workBook.Sheets[name] = data;
     if (worksheet.options) {
       for (const opKey in worksheet.options) {
-        if (opKey=="!ref" || opKey=="!cols" || opKey=="!merges") {
+        if (opKey==="!ref" || opKey==="!cols" || opKey==="!merges") {
             workBook.Sheets[name][opKey] = worksheet.options[opKey];
         }
         
