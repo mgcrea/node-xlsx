@@ -24,6 +24,14 @@ export function build(worksheets, options = {}) {
     const data = buildSheetFromMatrix(worksheet.data || [], options);
     workBook.SheetNames.push(name);
     workBook.Sheets[name] = data;
+    if (worksheet.options) {
+      for (const opKey in worksheet.options) {
+        if (opKey==="!ref" || opKey==="!cols" || opKey==="!merges") {
+            workBook.Sheets[name][opKey] = worksheet.options[opKey];
+        }
+        
+      }
+    }
   });
   const excelData = XLSX.write(workBook, Object.assign({}, defaults, options));
   return excelData instanceof Buffer ? excelData : bufferFrom(excelData, 'binary');
