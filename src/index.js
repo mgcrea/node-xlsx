@@ -24,9 +24,12 @@ export function build(worksheets, options = {}) {
     const data = buildSheetFromMatrix(worksheet.data || [], options);
     workBook.SheetNames.push(name);
     workBook.Sheets[name] = data;
-    if(worksheet.options) {
-      for(let opKey in worksheet.options) {
-        workBook.Sheets[name][opKey] = worksheet.options[opKey];
+    if (worksheet.options) {
+      for (const opKey in worksheet.options) {
+        if (opKey=="!ref" || opKey=="!cols" || opKey=="!merges") {
+            workBook.Sheets[name][opKey] = worksheet.options[opKey];
+        }
+        
       }
     }
   });
