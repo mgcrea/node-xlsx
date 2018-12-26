@@ -56,6 +56,14 @@ const buildSheetFromMatrix = (data, options = {}) => {
   if (options['!merges']) {
     workSheet['!merges'] = options['!merges'];
   }
+  // Support for setting up a single cell
+  for (let key in options) {
+    if (/^[A-Z]+\d+$/.test(key)) {
+      workSheet[key]? 
+        workSheet[key] = Object.assign(workSheet[key], options[key]) :
+        workSheet[key] = options[key];
+    }
+  }
   return workSheet;
 };
 
