@@ -1,6 +1,5 @@
 .history/
 node_modules/
-lib/
 .DS_Store
 *.log
 yarn.lock
