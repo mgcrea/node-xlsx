@@ -1,6 +1,10 @@
-node_modules/
 .DS_Store
-*.log
+npm-debug.log
 yarn.lock
-.nyc_output/
+node_modules/
+.history/
+src/
 coverage/
+test/
+*.js
+.*
