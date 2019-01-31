@@ -1,9 +1,9 @@
 # Node XLSX
 
-![status](https://img.shields.io/badge/status-maintained-brightgreen.svg)
 [![npm version](https://img.shields.io/npm/v/node-xlsx.svg?style=flat)](https://www.npmjs.com/package/node-xlsx)
-[![npm downloads](https://img.shields.io/npm/dm/node-xlsx.svg)](https://www.npmjs.com/package/node-xlsx)
 [![license](https://img.shields.io/badge/license-Apache--2.0-green.svg)](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))<br />
+![status](https://img.shields.io/badge/status-maintained-brightgreen.svg)
+[![npm downloads](https://img.shields.io/npm/dm/node-xlsx.svg)](https://www.npmjs.com/package/node-xlsx)
 [![build status](http://img.shields.io/travis/mgcrea/node-xlsx/master.svg?style=flat)](http://travis-ci.org/mgcrea/node-xlsx)
 [![dependencies status](https://img.shields.io/david/mgcrea/node-xlsx.svg?style=flat)](https://david-dm.org/mgcrea/node-xlsx)
 [![devDependencies status](https://img.shields.io/david/dev/mgcrea/node-xlsx.svg?style=flat)](https://david-dm.org/mgcrea/node-xlsx#info=devDependencies)
