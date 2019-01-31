@@ -18,7 +18,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "buffer-from": "^1.1.0",
-    "xlsx": "^0.12.4"
+    "xlsx": "^0.14.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
