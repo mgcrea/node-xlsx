@@ -47,9 +47,9 @@ import xlsx from 'node-xlsx';
 // Or var xlsx = require('node-xlsx').default;
 
 const data = [[1, 2, 3], [true, false, null, 'sheetjs'], ['foo', 'bar', new Date('2014-02-19T14:30Z'), '0.3'], ['baz', null, 'qux']]
-const option = {'!cols': [{ wch: 6 }, { wch: 7 }, { wch: 10 }, { wch: 20 } ]};
+const options = {'!cols': [{ wch: 6 }, { wch: 7 }, { wch: 10 }, { wch: 20 } ]};
 
-var buffer = xlsx.build([{name: "mySheetName", data: data}], option); // Returns a buffer
+var buffer = xlsx.build([{name: "mySheetName", data: data}], options); // Returns a buffer
 ```
 
   * Spanning multiple rows `A1:A4` in every sheets
@@ -59,9 +59,9 @@ import xlsx from 'node-xlsx';
 
 const data = [[1, 2, 3], [true, false, null, 'sheetjs'], ['foo', 'bar', new Date('2014-02-19T14:30Z'), '0.3'], ['baz', null, 'qux']];
 const range = {s: {c: 0, r:0 }, e: {c:0, r:3}}; // A1:A4
-const option = {'!merges': [ range ]};
+const options = {'!merges': [ range ]};
 
-var buffer = xlsx.build([{name: "mySheetName", data: data}], option); // Returns a buffer
+var buffer = xlsx.build([{name: "mySheetName", data: data}], options); // Returns a buffer
 ```
 
   * Spanning multiple rows `A1:A4` in second sheet only
@@ -72,9 +72,9 @@ import xlsx from 'node-xlsx';
 const dataSheet1 = [[1, 2, 3], [true, false, null, 'sheetjs'], ['foo', 'bar', new Date('2014-02-19T14:30Z'), '0.3'], ['baz', null, 'qux']];
 const dataSheet2 = [[4, 5, 6], [7, 8, 9, 10], [11, 12, 13, 14], ['baz', null, 'qux']];
 const range = {s: {c: 0, r:0 }, e: {c:0, r:3}}; // A1:A4
-const option = {'!merges': [ range ]};
+const sheetOptions = {'!merges': [ range ]};
 
-var buffer = xlsx.build([{name: "myFirstSheet", data: dataSheet1}, {name: "mySecondSheet", data: dataSheet2, options: options}]); // Returns a buffer
+var buffer = xlsx.build([{name: "myFirstSheet", data: dataSheet1}, {name: "mySecondSheet", data: dataSheet2, options: sheetOptions}]); // Returns a buffer
 ```
 _Beware that if you try to merge several times the same cell, your xlsx file will be seen as corrupted._
 
