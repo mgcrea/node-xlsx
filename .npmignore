@@ -1,10 +1,7 @@
-.DS_Store
-npm-debug.log
-yarn.lock
-node_modules/
-.history/
-src/
-coverage/
-test/
-*.js
+*
 .*
+LICENSE
+README.md
+package.json
+!lib/*.js
+!lib/*.js.map
