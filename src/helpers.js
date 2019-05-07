@@ -40,6 +40,23 @@ const buildSheetFromMatrix = (data, options = {}) => {
         cell.t = 'n';
         cell.v = buildExcelDate(cell.v);
         cell.z = cell.z || XLSX.SSF._table[14]; // eslint-disable-line no-underscore-dangle
+
+      /* eslint-disable spaced-comment, no-trailing-spaces */
+      /***
+       * Allows for an non-abstracted representation of the data
+       * 
+       * example: {t:'n', z:10, f:'=AVERAGE(A:A)'}
+       * 
+       * Documentation:
+       * - Cell Object: https://sheetjs.gitbooks.io/docs/#cell-object
+       * - Data Types: https://sheetjs.gitbooks.io/docs/#data-types
+       * - Format: https://sheetjs.gitbooks.io/docs/#number-formats
+       **/
+      /* eslint-disable spaced-comment, no-trailing-spaces */
+      } else if (isObject(cell.v)) {
+        cell.t = cell.v.t;
+        cell.f = cell.v.f;
+        cell.z = cell.v.z;
       } else {
         cell.t = 's';
       }

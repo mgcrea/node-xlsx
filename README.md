@@ -79,6 +79,22 @@ var buffer = xlsx.build([{name: "myFirstSheet", data: dataSheet1}, {name: "mySec
 _Beware that if you try to merge several times the same cell, your xlsx file will be seen as corrupted._
 
 
+  * Using Primitive Object Notation
+Data values can also be specified in a non-abstracted representation.
+
+Examples:
+```js
+const rowAverage = [[{t:'n', z:10, f:'=AVERAGE(2:2)'}], [1,2,3];
+var buffer = xlsx.build([{name: "Average Formula", data: rowAverage}]);
+```
+
+Refer to [xlsx](https://sheetjs.gitbooks.io) documentation for valid structure and values:
+- Cell Object: https://sheetjs.gitbooks.io/docs/#cell-object
+- Data Types: https://sheetjs.gitbooks.io/docs/#data-types
+- Format: https://sheetjs.gitbooks.io/docs/#number-formats
+
+
+
 ### Troubleshooting
 
 This library requires at lease nodeJS v4. For legacy versions, you can use this workaround before using the lib.
