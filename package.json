@@ -6,11 +6,11 @@
   "main": "lib/index.js",
   "scripts": {
     "start": "npm run test:watch",
-    "test": "NODE_ENV=test jest --runInBand",
+    "test": "cross-env NODE_ENV=test jest --runInBand",
     "test:watch": "npm run test -- --watch",
     "test:coverage": "npm run test -- --coverage",
-    "lint": "NODE_ENV=test eslint src/",
-    "compile": "rimraf lib/*; NODE_ENV=production babel src/ -d lib/ -s",
+    "lint": "cross-env NODE_ENV=test eslint src/",
+    "compile": "rimraf ./lib/* && cross-env NODE_ENV=production babel ./src/ -d ./lib/ -s",
     "compile:watch": "npm run compile -- -w",
     "prepublish": "npm run compile"
   },
@@ -29,6 +29,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "codacy-coverage": "^3.0.0",
+    "cross-env": "^5.2.0",
     "debug-utils": "^0.3.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
