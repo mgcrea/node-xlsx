@@ -6,6 +6,12 @@ describe('node-xlsx parser', () => {
   it('should throw if no input is given', () => {
     expect(() => parseXSLX()).toThrow();
   });
+  it('should properly parse an XLSX buffer with merged cells', () => {
+    const expected = JSON.parse(fs.readFileSync(`${__dirname}/../fixtures/merges.json`));
+    const buffer = fs.readFileSync(`${__dirname}/../fixtures/merges.xlsx`);
+    const result = JSON.parse(JSON.stringify(parseXSLX(buffer)));
+    expect(result).toEqual(expected);
+  });
   it('should properly parse an XLSX buffer', () => {
     const expected = JSON.parse(fs.readFileSync(`${__dirname}/../fixtures/test.json`));
     const buffer = fs.readFileSync(`${__dirname}/../fixtures/test.xlsx`);
