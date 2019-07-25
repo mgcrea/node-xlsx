@@ -1,6 +1,6 @@
 import fs from 'fs';
 import expect from 'expect';
-import {parse as parseXSLX} from './../../src';
+import {parse as parseXSLX} from '../../src';
 
 describe('node-xlsx parser', () => {
   it('should throw if no input is given', () => {

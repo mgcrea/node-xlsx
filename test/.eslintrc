@@ -1,6 +1,5 @@
 {
   "extends": "./../.eslintrc",
-  "parser": "babel-eslint",
   "env": {
     "jest": true,
     "jasmine": true

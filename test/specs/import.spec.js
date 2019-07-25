@@ -1,5 +1,5 @@
 import expect from 'expect';
-import XSLX from './../../src';
+import XSLX from '../../src';
 
 describe('node-xlsx import', () => {
   it('should get current object', () => {

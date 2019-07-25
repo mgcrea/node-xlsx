@@ -1,19 +1,19 @@
 import XLSX from 'xlsx';
 
-const isBoolean = maybeBoolean => typeof maybeBoolean === 'boolean';
-const isNumber = maybeNumber => typeof maybeNumber === 'number';
-const isString = maybeString => typeof maybeString === 'string';
-const isObject = maybeObject => maybeObject !== null && typeof maybeObject === 'object';
-const isCellDescriptor = maybeCell => isObject(maybeCell) && 'v' in maybeCell;
+const ORIGIN_DATE = new Date(Date.UTC(1899, 11, 30));
 
-const originDate = new Date(Date.UTC(1899, 11, 30));
+export const isBoolean = (maybeBoolean) => typeof maybeBoolean === 'boolean';
+export const isNumber = (maybeNumber) => typeof maybeNumber === 'number';
+export const isString = (maybeString) => typeof maybeString === 'string';
+export const isObject = (maybeObject) => maybeObject !== null && typeof maybeObject === 'object';
+export const isCellDescriptor = (maybeCell) => isObject(maybeCell) && 'v' in maybeCell;
 
-const buildExcelDate = (value, is1904) => {
+export const buildExcelDate = (value, is1904) => {
   const epoch = Date.parse(value + (is1904 ? 1462 : 0));
-  return (epoch - originDate) / (864e5);
+  return (epoch - ORIGIN_DATE) / 864e5;
 };
 
-const buildSheetFromMatrix = (data, options = {}) => {
+export const buildSheetFromMatrix = (data, options = {}) => {
   const workSheet = {};
   const range = {s: {c: 1e7, r: 1e7}, e: {c: 0, r: 0}};
 
@@ -41,18 +41,18 @@ const buildSheetFromMatrix = (data, options = {}) => {
         cell.v = buildExcelDate(cell.v);
         cell.z = cell.z || XLSX.SSF._table[14]; // eslint-disable-line no-underscore-dangle
 
-      /* eslint-disable spaced-comment, no-trailing-spaces */
-      /***
-       * Allows for an non-abstracted representation of the data
-       * 
-       * example: {t:'n', z:10, f:'=AVERAGE(A:A)'}
-       * 
-       * Documentation:
-       * - Cell Object: https://sheetjs.gitbooks.io/docs/#cell-object
-       * - Data Types: https://sheetjs.gitbooks.io/docs/#data-types
-       * - Format: https://sheetjs.gitbooks.io/docs/#number-formats
-       **/
-      /* eslint-disable spaced-comment, no-trailing-spaces */
+        /* eslint-disable spaced-comment, no-trailing-spaces */
+        /***
+         * Allows for an non-abstracted representation of the data
+         *
+         * example: {t:'n', z:10, f:'=AVERAGE(A:A)'}
+         *
+         * Documentation:
+         * - Cell Object: https://sheetjs.gitbooks.io/docs/#cell-object
+         * - Data Types: https://sheetjs.gitbooks.io/docs/#data-types
+         * - Format: https://sheetjs.gitbooks.io/docs/#number-formats
+         **/
+        /* eslint-disable spaced-comment, no-trailing-spaces */
       } else if (isObject(cell.v)) {
         cell.t = cell.v.t;
         cell.f = cell.v.f;
@@ -75,5 +75,3 @@ const buildSheetFromMatrix = (data, options = {}) => {
   }
   return workSheet;
 };
-
-export {buildSheetFromMatrix, isBoolean, isNumber, isString, isObject, isCellDescriptor};

@@ -1,6 +1,6 @@
 import fs from 'fs';
 import expect from 'expect';
-import {build as buildXSLX} from './../../src';
+import {build as buildXSLX} from '../../src';
 
 describe('node-xlsx builder', () => {
   it('should throw if no input is given', () => {
