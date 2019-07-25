@@ -28,3 +28,5 @@ export const build = (worksheets, options = {}) => {
   const excelData = XLSX.write(workBook, Object.assign({}, defaults, options));
   return excelData instanceof Buffer ? excelData : bufferFrom(excelData, 'binary');
 };
+
+export default {parse, build};
