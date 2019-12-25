@@ -7,7 +7,7 @@ export const parse = (mixed, options = {}) => {
   const workSheet = XLSX[isString(mixed) ? 'readFile' : 'read'](mixed, options);
   return Object.keys(workSheet.Sheets).map((name) => {
     const sheet = workSheet.Sheets[name];
-    return {name, data: XLSX.utils.sheet_to_json(sheet, {header: 1, raw: options.raw !== false})};
+    return {name, data: XLSX.utils.sheet_to_json(sheet, {header: 1, raw: options.raw !== false, defval: null})};
   });
 };
 
