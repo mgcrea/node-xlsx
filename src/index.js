@@ -1,4 +1,4 @@
-import XLSX from 'xlsx';
+import XLSX from 'xlsx-style';
 import bufferFrom from 'buffer-from';
 import {buildSheetFromMatrix, isString} from './helpers';
 import Workbook from './workbook';
