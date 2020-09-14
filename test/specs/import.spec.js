@@ -6,6 +6,6 @@ describe('node-xlsx import', () => {
     expect(typeof XSLX).toBe('object');
   });
   it('should has current keys', () => {
-    expect(Object.keys(XSLX)).toEqual(['parse', 'build']);
+    expect(Object.keys(XSLX)).toEqual(['parse', 'parseMetadata', 'build']);
   });
 });
