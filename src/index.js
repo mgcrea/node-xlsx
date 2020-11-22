@@ -34,7 +34,7 @@ export const build = (worksheets, options = {}) => {
     workBook.SheetNames.push(sheetName);
     workBook.Sheets[sheetName] = sheetData;
   });
-  const excelData = XLSX.write(workBook, Object.assign({}, defaults, options));
+  const excelData = XLSX.write(workBook, {...defaults, ...options});
   return excelData instanceof Buffer ? excelData : bufferFrom(excelData, 'binary');
 };
 
