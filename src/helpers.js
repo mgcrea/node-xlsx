@@ -56,6 +56,7 @@ export const buildSheetFromMatrix = (data, options = {}) => {
       } else if (isObject(cell.v)) {
         cell.t = cell.v.t;
         cell.f = cell.v.f;
+        cell.F = cell.v.F;
         cell.z = cell.v.z;
       } else {
         cell.t = 's';
