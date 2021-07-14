@@ -19,7 +19,7 @@
   "dependencies": {
     "@babel/runtime": "^7.12.5",
     "buffer-from": "^1.1.1",
-    "xlsx": "^0.16.9"
+    "xlsx": "^0.17.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
