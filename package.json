@@ -17,25 +17,25 @@
   "repository": "github:mgcrea/node-xlsx",
   "license": "Apache-2.0",
   "dependencies": {
-    "@babel/runtime": "^7.14.6",
-    "buffer-from": "^1.1.1",
-    "xlsx": "^0.17.0"
+    "@babel/runtime": "^7.15.4",
+    "buffer-from": "^1.1.2",
+    "xlsx": "^0.17.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.14.5",
-    "@babel/core": "^7.14.6",
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
-    "@babel/plugin-transform-runtime": "^7.14.5",
-    "@babel/preset-env": "^7.14.7",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.6",
     "babel-eslint": "^10.1.0",
     "codacy-coverage": "^3.4.0",
     "debug-utils": "^0.5.3",
-    "eslint": "^7.30.0",
+    "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.23.4",
-    "expect": "^27.0.6",
-    "jest": "^27.0.6",
+    "eslint-plugin-import": "^2.24.2",
+    "expect": "^27.2.1",
+    "jest": "^27.2.1",
     "rimraf": "^3.0.2"
   },
   "engines": {
