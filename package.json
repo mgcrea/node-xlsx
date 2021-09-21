@@ -1,7 +1,7 @@
 {
   "name": "node-xlsx",
   "author": "Olivier Louvignes <olivier@mg-crea.com>",
-  "version": "0.17.1",
+  "version": "0.17.2",
   "description": "NodeJS Excel files parser & builder",
   "main": "lib/index.js",
   "scripts": {
