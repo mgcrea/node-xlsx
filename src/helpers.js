@@ -8,6 +8,8 @@ export const isString = (maybeString) => typeof maybeString === 'string';
 export const isObject = (maybeObject) => maybeObject !== null && typeof maybeObject === 'object';
 export const isCellDescriptor = (maybeCell) => isObject(maybeCell) && 'v' in maybeCell;
 
+const SUPPORTED_WS_OPTIONS = ['!cols', '!rows', '!merges', '!autofilter', '!protect'];
+
 export const buildExcelDate = (value, is1904) => {
   const epoch = Date.parse(value + (is1904 ? 1462 : 0));
   return (epoch - ORIGIN_DATE) / 864e5;
@@ -68,20 +70,10 @@ export const buildSheetFromMatrix = (data, options = {}) => {
   if (range.s.c < 1e7) {
     workSheet['!ref'] = XLSX.utils.encode_range(range);
   }
-  if (options['!cols']) {
-    workSheet['!cols'] = options['!cols'];
-  }
-  if (options['!rows']) {
-    workSheet['!rows'] = options['!rows'];
-  }
-  if (options['!merges']) {
-    workSheet['!merges'] = options['!merges'];
-  }
-  if (options['!autofilter']) {
-    workSheet['!autofilter'] = options['!autofilter'];
-  }
-  if (options['!protect']) {
-    workSheet['!protect'] = options['!protect'];
-  }
+  SUPPORTED_WS_OPTIONS.forEach((option) => {
+    if (options[option]) {
+      workSheet[option] = options[option];
+    }
+  });
   return workSheet;
 };
