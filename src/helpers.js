@@ -56,6 +56,7 @@ export const buildSheetFromMatrix = (data, options = {}) => {
       } else if (isObject(cell.v)) {
         cell.t = cell.v.t;
         cell.f = cell.v.f;
+        cell.F = cell.v.F;
         cell.z = cell.v.z;
       } else {
         cell.t = 's';
@@ -70,11 +71,17 @@ export const buildSheetFromMatrix = (data, options = {}) => {
   if (options['!cols']) {
     workSheet['!cols'] = options['!cols'];
   }
+  if (options['!rows']) {
+    workSheet['!rows'] = options['!rows'];
+  }
   if (options['!merges']) {
     workSheet['!merges'] = options['!merges'];
   }
   if (options['!autofilter']) {
     workSheet['!autofilter'] = options['!autofilter'];
+  }
+  if (options['!protect']) {
+    workSheet['!protect'] = options['!protect'];
   }
   return workSheet;
 };
