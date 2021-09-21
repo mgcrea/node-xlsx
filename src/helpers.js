@@ -77,6 +77,9 @@ export const buildSheetFromMatrix = (data, options = {}) => {
   if (options['!merges']) {
     workSheet['!merges'] = options['!merges'];
   }
+  if (options['!autofilter']) {
+    workSheet['!autofilter'] = options['!autofilter'];
+  }
   if (options['!protect']) {
     workSheet['!protect'] = options['!protect'];
   }
