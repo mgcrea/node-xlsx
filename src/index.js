@@ -38,4 +38,4 @@ export const build = (worksheets, options = {}) => {
   return excelData instanceof Buffer ? excelData : bufferFrom(excelData, 'binary');
 };
 
-export default {parse, parseMetadata, build};
+export default {parse, parseMetadata, build, xlsx: XLSX};
