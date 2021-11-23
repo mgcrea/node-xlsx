@@ -84,7 +84,7 @@ Data values can also be specified in a non-abstracted representation.
 
 Examples:
 ```js
-const rowAverage = [[{t:'n', z:10, f:'=AVERAGE(2:2)'}], [1,2,3];
+const rowAverage = [[{t:'n', z:10, f:'=AVERAGE(2:2)'}], [1,2,3]];
 var buffer = xlsx.build([{name: "Average Formula", data: rowAverage}]);
 ```
 
