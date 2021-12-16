@@ -1,4 +1,5 @@
 import expect from 'expect';
+import xlsx from 'xlsx';
 import {parse as parseXSLX} from '../../src';
 import {readFixture, readBufferFixture} from '../utils';
 
@@ -23,6 +24,28 @@ describe('node-xlsx parser', () => {
     const expected = JSON.parse(readFixture(`dateField.json`));
     const file = `test/fixtures/dateField.xlsx`;
     const result = JSON.parse(JSON.stringify(parseXSLX(file, {raw: false})));
+    expect(result).toEqual(expected);
+  });
+  it('should properly parse an XLSX with a range option as a function', () => {
+    const expected = JSON.parse(readFixture('withEmptyColumns.json'));
+    const file = 'test/fixtures/withEmptyColumns.xlsx';
+    const result = JSON.parse(
+      JSON.stringify(
+        parseXSLX(file, {
+          raw: true,
+          header: 1,
+          range: function keepEmptyColumns(sheet: xlsx.WorkSheet) {
+            if (sheet['!ref']) {
+              const {s, e} = xlsx.utils.decode_range(sheet['!ref']);
+              // starts at column #1
+              s.c = 0;
+              return xlsx.utils.encode_range(s, e);
+            }
+            return sheet['!ref'];
+          },
+        })
+      )
+    );
     expect(result).toEqual(expected);
   });
 });

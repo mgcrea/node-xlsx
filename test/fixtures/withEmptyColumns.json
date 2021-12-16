@@ -1,0 +1,9 @@
+[
+  {
+    "name": "with empty columns",
+    "data": [
+      [null, null, "c2", "d2", "e2"],
+      [null, null, "c3", "d2", "e3"]
+    ]
+  }
+]
