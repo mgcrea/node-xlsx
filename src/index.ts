@@ -24,8 +24,8 @@ export const parse = (mixed: unknown, options: Sheet2JSONOpts & ParsingOptions =
   });
 };
 
-export const parseMetadata = (mixed: unknown, parsingOptions: ParsingOptions = {}) => {
-  const workBook = isString(mixed) ? XLSX.readFile(mixed, parsingOptions) : XLSX.read(mixed, parsingOptions);
+export const parseMetadata = (mixed: unknown, options: ParsingOptions = {}) => {
+  const workBook = isString(mixed) ? XLSX.readFile(mixed, options) : XLSX.read(mixed, options);
   return Object.keys(workBook.Sheets).map((name) => {
     const sheet = workBook.Sheets[name];
     return {name, data: sheet['!ref'] ? XLSX.utils.decode_range(sheet['!ref']) : null};
@@ -38,11 +38,14 @@ export type WorkSheet<T = unknown> = {
   options: AOA2SheetOpts;
 };
 
-export const build = (worksheets: WorkSheet[], options: WritingOptions = {}): Buffer => {
-  const {bookType = 'xlsx', bookSST = false, type = 'buffer', ...otherOptions} = options;
-  const workBook = worksheets.reduce<WorkBook>((soFar, {name, data, options}, index) => {
+export const build = (
+  worksheets: WorkSheet[],
+  options: WritingOptions & {sheetOptions?: AOA2SheetOpts} = {}
+): Buffer => {
+  const {bookType = 'xlsx', bookSST = false, type = 'buffer', sheetOptions = {}, ...otherOptions} = options;
+  const workBook = worksheets.reduce<WorkBook>((soFar, {name, data, options = {}}, index) => {
     const sheetName = name || `Sheet_${index}`;
-    const sheetData = utils.aoa_to_sheet(data, options);
+    const sheetData = utils.aoa_to_sheet(data, {...sheetOptions, ...options});
     soFar.SheetNames.push(sheetName);
     soFar.Sheets[sheetName] = sheetData;
     return soFar;
