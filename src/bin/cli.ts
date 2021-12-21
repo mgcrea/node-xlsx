@@ -3,7 +3,6 @@ import {writeFile} from 'fs/promises';
 import {build} from './..';
 
 const [action = 'build', ...args] = process.argv.slice(2);
-console.dir({args});
 
 const readStdin = async (bufferSize?: number): Promise<Buffer> => {
   return new Promise((resolve) => {
