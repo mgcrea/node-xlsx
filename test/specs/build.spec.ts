@@ -1,5 +1,5 @@
 import expect from 'expect';
-import {build as buildXSLX, parse} from '../../src';
+import {build as buildXSLX} from '../../src';
 import {readBufferFixture, readFixture} from '../utils';
 
 describe('node-xlsx builder', () => {

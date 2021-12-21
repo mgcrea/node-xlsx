@@ -1,15 +1,14 @@
 import XLSX, {
   AOA2SheetOpts,
-  ParsingOptions,
-  Sheet2JSONOpts,
-  utils,
-  WritingOptions,
-  WorkSheet as XLSXWorkSheet,
   AutoFilterInfo,
   ColInfo,
+  ParsingOptions,
   ProtectInfo,
   Range,
   RowInfo,
+  Sheet2JSONOpts,
+  utils,
+  WritingOptions,
 } from 'xlsx';
 import {isString} from './helpers';
 import {WorkBook} from './workbook';
