@@ -24,7 +24,7 @@
 
 Straightforward excel file parser and builder.
 
-- Relies on [js-xlsx](https://github.com/SheetJS/js-xlsx) to parse/build excel sheets.
+- Relies on [SheetJS xlsx](https://github.com/SheetJS/sheetjs) module to parse/build excel sheets.
 - Built with [TypeScript](https://www.typescriptlang.org/) for static type checking with exported types along the
   library.
 
@@ -132,8 +132,8 @@ _Beware that if you try to merge several times the same cell, your xlsx file wil
 Examples:
 
 ```js
-const rowAverage = [[{t:'n', z:10, f:'=AVERAGE(2:2)'}], [1,2,3]];
-var buffer = xlsx.build([{name: "Average Formula", data: rowAverage}]);
+const rowAverage = [[{t: 'n', z: 10, f: '=AVERAGE(2:2)'}], [1, 2, 3]];
+var buffer = xlsx.build([{name: 'Average Formula', data: rowAverage}]);
 ```
 
 Refer to [xlsx](https://sheetjs.gitbooks.io) documentation for valid structure and values:
