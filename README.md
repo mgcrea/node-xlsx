@@ -132,7 +132,7 @@ _Beware that if you try to merge several times the same cell, your xlsx file wil
 Examples:
 
 ```js
-const rowAverage = [[{t:'n', z:10, f:'=AVERAGE(2:2)'}], [1,2,3];
+const rowAverage = [[{t:'n', z:10, f:'=AVERAGE(2:2)'}], [1,2,3]];
 var buffer = xlsx.build([{name: "Average Formula", data: rowAverage}]);
 ```
 
