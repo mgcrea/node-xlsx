@@ -1,0 +1,23 @@
+[
+  {
+    "name": "myFirstSheet",
+    "data": [
+      [1, 2, 3],
+      [true, false, null, "sheetjs"],
+      ["foo", "bar", 41689.604166666664, "0.3"],
+      ["baz", null, "qux"]
+    ]
+  },
+  {
+    "name": "mySecondSheet",
+    "data": [
+      [4, 5, 6],
+      [7, 8, 9, 10],
+      [11, 12, 13, 14],
+      ["baz", null, "qux"]
+    ],
+    "options": {
+      "!merges": [{"s": {"c": 0, "r": 0}, "e": {"c": 0, "r": 3}}]
+    }
+  }
+]
