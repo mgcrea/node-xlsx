@@ -1,27 +1,11 @@
-[{
-  "name": "mySheetName",
-  "data": [
-    [
-      1,
-      2,
-      3
-    ],
-    [
-      true,
-      false,
-      null,
-      "sheetjs"
-    ],
-    [
-      "foo",
-      "bar",
-      41689.604166666664,
-      "0.3"
-    ],
-    [
-      "baz",
-      null,
-      "qux"
+[
+  {
+    "name": "mySheetName",
+    "data": [
+      [1, 2, 3],
+      [true, false, null, "sheetjs"],
+      ["foo", "bar", 41689.604166666664, "0.3"],
+      ["baz", null, "qux"]
     ]
-  ]
-}]
+  }
+]

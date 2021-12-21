@@ -4,42 +4,44 @@
   "version": "0.17.2",
   "description": "NodeJS Excel files parser & builder",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "bin": {
+    "node-xlsx": "./lib/bin/cli.js"
+  },
   "scripts": {
-    "start": "yarn test:watch",
-    "test": "NODE_ENV=test jest --runInBand",
-    "test:watch": "yarn test -- --watch",
-    "test:coverage": "yarn test -- --coverage",
-    "lint": "NODE_ENV=test eslint src/ test/",
-    "build": "rimraf lib/*; NODE_ENV=production babel src/ -d lib/ -s",
-    "build:watch": "yarn build -- -w",
-    "prepublish": "yarn build"
+    "start": "npm run spec -- --watch",
+    "build": "rimraf lib/*; tsc --build",
+    "lint": "eslint src/ test/",
+    "prettycheck": "prettier --check src/ test/",
+    "typecheck": "tsc --noEmit",
+    "spec": "jest --runInBand",
+    "test": "npm run lint && npm run prettycheck && npm run typecheck && npm run spec",
+    "prepublish": "npm run build"
   },
   "repository": "github:mgcrea/node-xlsx",
   "license": "Apache-2.0",
   "dependencies": {
-    "@babel/runtime": "^7.15.4",
-    "buffer-from": "^1.1.2",
-    "xlsx": "^0.17.2"
+    "xlsx": "^0.17.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.15.7",
-    "@babel/core": "^7.15.5",
-    "@babel/plugin-proposal-class-properties": "^7.14.5",
-    "@babel/plugin-transform-runtime": "^7.15.0",
-    "@babel/preset-env": "^7.15.6",
-    "babel-eslint": "^10.1.0",
-    "codacy-coverage": "^3.4.0",
-    "debug-utils": "^0.5.3",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb-base": "^14.2.1",
+    "@tsconfig/node10": "^1.0.8",
+    "@types/jest": "^27.0.3",
+    "@types/sodium-native": "^2.3.5",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.24.2",
-    "expect": "^27.2.1",
-    "jest": "^27.2.1",
-    "rimraf": "^3.0.2"
+    "eslint-plugin-jest": "^25.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.4.5",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.1.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=10.0.0"
   },
   "keywords": [
     "excel",
@@ -47,11 +49,5 @@
     "builder",
     "xlsx",
     "xls"
-  ],
-  "jest": {
-    "testEnvironment": "node",
-    "setupFiles": [
-      "<rootDir>/test/setup.js"
-    ]
-  }
+  ]
 }

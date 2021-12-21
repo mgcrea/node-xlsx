@@ -1,8 +1,6 @@
-.history/
-node_modules/
-lib/
 .DS_Store
-*.log
-.tmp/
-.nyc_output/
-coverage/
+lib/
+node_modules/
+.vscode/
+*.tsbuildinfo
+~$*

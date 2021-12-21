@@ -1,7 +1,9 @@
 *
 .*
-LICENSE
-README.md
-package.json
-!lib/*.js
-!lib/*.js.map
+!package.json
+!LICENSE*
+!README*
+!CHANGELOG*
+!lib/**/*.js
+!lib/**/*.js.map
+!lib/**/*.d.ts

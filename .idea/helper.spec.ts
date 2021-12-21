@@ -28,7 +28,7 @@ describe('node-xlsx helper', () => {
         expect(sheet.A1.z).toBe('0.00%');
       });
 
-      it('should display data in percentage format with 2-decimal precision', () => {
+      it('should display data in percentage format with 2-decimal precision bis', () => {
         const primitive = [[{t: 'n', z: 4, f: '=SUM(2:2)'}]];
 
         const sheet = buildSheetFromMatrix(primitive);

@@ -1,12 +1,7 @@
 {
-  "extends": "./../.eslintrc",
+  "extends": ["../.eslintrc", "plugin:jest/recommended"],
+  "plugins": ["jest"],
   "env": {
-    "jest": true,
-    "jasmine": true
-  },
-  "rules": {
-    "func-names": "off",
-    "no-underscore-dangle": "off",
-    "import/no-extraneous-dependencies": "off"
+    "jest/globals": true
   }
 }
