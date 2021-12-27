@@ -25,7 +25,7 @@ export const parse = (mixed: unknown, options: Sheet2JSONOpts & ParsingOptions =
       data: XLSX.utils.sheet_to_json(sheet, {
         dateNF,
         header,
-        range,
+        range: typeof range === 'function' ? range(sheet) : range,
         blankrows,
         defval,
         raw,
