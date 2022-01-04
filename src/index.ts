@@ -1,13 +1,16 @@
-import XLSX, {
+import {
   AOA2SheetOpts,
   AutoFilterInfo,
   ColInfo,
   ParsingOptions,
   ProtectInfo,
   Range,
+  read,
+  readFile,
   RowInfo,
   Sheet2JSONOpts,
   utils,
+  write,
   WritingOptions,
 } from 'xlsx';
 import {isString} from './helpers';
@@ -16,13 +19,13 @@ import {WorkBook} from './workbook';
 export const parse = (mixed: unknown, options: Sheet2JSONOpts & ParsingOptions = {}) => {
   const {dateNF, header = 1, range, blankrows, defval, raw = true, rawNumbers, ...otherOptions} = options;
   const workBook = isString(mixed)
-    ? XLSX.readFile(mixed, {dateNF, raw, ...otherOptions})
-    : XLSX.read(mixed, {dateNF, raw, ...otherOptions});
+    ? readFile(mixed, {dateNF, raw, ...otherOptions})
+    : read(mixed, {dateNF, raw, ...otherOptions});
   return Object.keys(workBook.Sheets).map((name) => {
     const sheet = workBook.Sheets[name];
     return {
       name,
-      data: XLSX.utils.sheet_to_json(sheet, {
+      data: utils.sheet_to_json(sheet, {
         dateNF,
         header,
         range: typeof range === 'function' ? range(sheet) : range,
@@ -36,10 +39,10 @@ export const parse = (mixed: unknown, options: Sheet2JSONOpts & ParsingOptions =
 };
 
 export const parseMetadata = (mixed: unknown, options: ParsingOptions = {}) => {
-  const workBook = isString(mixed) ? XLSX.readFile(mixed, options) : XLSX.read(mixed, options);
+  const workBook = isString(mixed) ? readFile(mixed, options) : read(mixed, options);
   return Object.keys(workBook.Sheets).map((name) => {
     const sheet = workBook.Sheets[name];
-    return {name, data: sheet['!ref'] ? XLSX.utils.decode_range(sheet['!ref']) : null};
+    return {name, data: sheet['!ref'] ? utils.decode_range(sheet['!ref']) : null};
   });
 };
 
@@ -93,7 +96,7 @@ export const build = (
     Object.assign(soFar.Sheets[sheetName], legacyOptions, sheetOptions, options);
     return soFar;
   }, new WorkBook());
-  return XLSX.write(workBook, {bookType, bookSST, type, ...otherWriteOptions});
+  return write(workBook, {bookType, bookSST, type, ...otherWriteOptions});
 };
 
 export default {parse, parseMetadata, build};
