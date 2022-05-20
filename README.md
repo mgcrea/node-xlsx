@@ -136,11 +136,10 @@ const rowAverage = [[{t: 'n', z: 10, f: '=AVERAGE(2:2)'}], [1, 2, 3]];
 var buffer = xlsx.build([{name: 'Average Formula', data: rowAverage}]);
 ```
 
-Refer to [xlsx](https://sheetjs.gitbooks.io) documentation for valid structure and values:
+Refer to [xlsx](https://docs.sheetjs.com/) documentation for valid structure and values:
 
-- [cell object]: (https://sheetjs.gitbooks.io/docs/#cell-object)
-- [data types]: (https://sheetjs.gitbooks.io/docs/#data-types)
-- [Format](https://sheetjs.gitbooks.io/docs/#number-formats)
+- [cell object](https://docs.sheetjs.com/docs/csf/general#cell-object)
+- [data types](https://docs.sheetjs.com/docs/csf/general#data-types)
 
 ### Troubleshooting
 
