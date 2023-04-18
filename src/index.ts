@@ -16,7 +16,8 @@ import {
 import {isString} from './helpers';
 import {WorkBook} from './workbook';
 
-export const parse = (mixed: unknown, options: Sheet2JSONOpts & ParsingOptions = {}) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const parse = <T = any[]>(mixed: unknown, options: Sheet2JSONOpts & ParsingOptions = {}) => {
   const {dateNF, header = 1, range, blankrows, defval, raw = true, rawNumbers, ...otherOptions} = options;
   const workBook = isString(mixed)
     ? readFile(mixed, {dateNF, raw, ...otherOptions})
@@ -25,7 +26,7 @@ export const parse = (mixed: unknown, options: Sheet2JSONOpts & ParsingOptions =
     const sheet = workBook.Sheets[name];
     return {
       name,
-      data: utils.sheet_to_json(sheet, {
+      data: utils.sheet_to_json<T>(sheet, {
         dateNF,
         header,
         range: typeof range === 'function' ? range(sheet) : range,
