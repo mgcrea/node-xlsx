@@ -1,0 +1,8 @@
+{
+  "git": {
+    "commitMessage": "chore(release): cut the v${version} release"
+  },
+  "github": {
+    "release": true
+  }
+}
