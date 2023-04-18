@@ -16,7 +16,7 @@
     "typecheck": "tsc --noEmit",
     "spec": "jest --runInBand",
     "test": "npm run lint && npm run prettycheck && npm run typecheck && npm run spec",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "repository": "github:mgcrea/node-xlsx",
   "license": "Apache-2.0",
