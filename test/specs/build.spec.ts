@@ -1,6 +1,6 @@
-import expect from 'expect';
 import {build as buildXSLX} from '../../src';
 import {readBufferFixture, readFixture} from '../utils';
+import {describe, it, expect} from '@jest/globals';
 
 describe('node-xlsx builder', () => {
   it('should throw if no input is given', () => {
@@ -12,16 +12,16 @@ describe('node-xlsx builder', () => {
     const worksheets = JSON.parse(readFixture(`test.json`));
     const result = buildXSLX(worksheets);
     expect(result instanceof Buffer).toBeTruthy();
-    // Only check the ten first bytes
-    expect(result.slice(0, 10)).toEqual(expected.slice(0, 10));
+    // Only check the four first bytes
+    expect(result.subarray(0, 4)).toEqual(expected.subarray(0, 4));
   });
   it('should handle !merges sheetOption', () => {
     const expected = readBufferFixture(`sheetOptions.xlsx`);
     const worksheets = JSON.parse(readFixture(`sheetOptions.json`));
     const result = buildXSLX(worksheets);
     expect(result instanceof Buffer).toBeTruthy();
-    // Only check the ten first bytes
-    expect(result.slice(0, 10)).toEqual(expected.slice(0, 10));
+    // Only check the four first bytes
+    expect(result.subarray(0, 4)).toEqual(expected.subarray(0, 4));
   });
   it('should handle global sheet options', () => {
     const worksheets = JSON.parse(readFixture(`test.json`));

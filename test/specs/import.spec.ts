@@ -1,5 +1,5 @@
-import expect from 'expect';
 import XSLX from '../../src';
+import {describe, it, expect} from '@jest/globals';
 
 describe('node-xlsx import', () => {
   it('should get current object', () => {

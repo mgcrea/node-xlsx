@@ -1,7 +1,7 @@
-import expect from 'expect';
 import xlsx from 'xlsx';
 import {parse as parseXSLX} from '../../src';
 import {readFixture, readBufferFixture} from '../utils';
+import {describe, it, expect} from '@jest/globals';
 
 describe('node-xlsx parser', () => {
   it('should throw if no input is given', () => {
