@@ -2,7 +2,7 @@ lockfileVersion: '6.0'
 
 dependencies:
   xlsx:
-    specifier: ^0.18.5
+    specifier: https://cdn.sheetjs.com/xlsx-0.19.3/xlsx-0.19.3.tgz
     version: 0.18.5
 
 devDependencies:
