@@ -12,41 +12,51 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['12', '14', '16']
+        node: ["lts/-1", "lts/*"]
     name: Test on node@v${{ matrix.node }}
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2
-      - name: Setup 🔧
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v3
+      - name: Setup pnpm 🔧
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Setup node 🔧
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
           check-latest: true
-          cache: 'npm'
+          cache: "pnpm"
       - name: Install 🪄
-        run: npm ci
+        run: pnpm install --frozen-lockfile
       - name: Lint 🔍
-        run: npm run lint
+        run: pnpm run lint
       - name: Prettier 🔍
-        run: npm run prettycheck
+        run: pnpm run prettycheck
       - name: TypeScript 🔍
-        run: npm run typecheck
+        run: pnpm run typecheck
+      - name: Vitest 🔍
+        run: pnpm run spec
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['12', '14', '16']
+        node: ["lts/-1", "lts/*"]
     name: Build on node@v${{ matrix.node }}
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2
-      - name: Setup 🔧
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v3
+      - name: Setup pnpm 🔧
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Setup node 🔧
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
           check-latest: true
-          cache: 'npm'
+          cache: "pnpm"
       - name: Install 🪄
-        run: npm ci
+        run: pnpm install --frozen-lockfile
       - name: Build 💎
-        run: npm run build
+        run: pnpm run build
