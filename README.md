@@ -32,6 +32,8 @@ Straightforward excel file parser and builder.
 
 ```bash
 npm install node-xlsx --save
+# or
+pnpm add node-xlsx
 ```
 
 ## Quickstart
