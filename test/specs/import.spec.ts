@@ -1,11 +1,11 @@
-import XSLX from '../../src';
-import {describe, it, expect} from '@jest/globals';
+import { describe, expect, it } from "vitest";
+import XSLX from "../../src";
 
-describe('node-xlsx import', () => {
-  it('should get current object', () => {
-    expect(typeof XSLX).toBe('object');
+describe("node-xlsx import", () => {
+  it("should get current object", () => {
+    expect(typeof XSLX).toBe("object");
   });
-  it('should has current keys', () => {
-    expect(Object.keys(XSLX)).toEqual(['parse', 'parseMetadata', 'build']);
+  it("should has current keys", () => {
+    expect(Object.keys(XSLX)).toEqual(["parse", "parseMetadata", "build"]);
   });
 });

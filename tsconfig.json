@@ -1,11 +1,13 @@
 {
-  "extends": "@tsconfig/node10/tsconfig.json",
+  "extends": ["@tsconfig/node-lts/tsconfig.json"],
   "compilerOptions": {
-    "esModuleInterop": true,
-    "declaration": true,
-    "outDir": "./lib",
-    "rootDir": "./src",
-    "baseUrl": "./"
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["./src/*"],
+      "test/*": ["./test/*"]
+    }
   },
-  "include": ["src/**/*"]
+  "include": ["src", "test"]
 }

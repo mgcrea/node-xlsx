@@ -1,4 +1,4 @@
-import type {WorkBook as XLSXWorkBook, WorkSheet} from 'xlsx';
+import type { WorkSheet, WorkBook as XLSXWorkBook } from "xlsx";
 
 export class WorkBook implements XLSXWorkBook {
   Sheets: Record<string, WorkSheet> = {};

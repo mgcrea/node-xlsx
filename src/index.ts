@@ -12,24 +12,25 @@ import {
   utils,
   write,
   WritingOptions,
-} from 'xlsx';
-import {isString} from './helpers';
-import {WorkBook} from './workbook';
+} from "xlsx";
+import "./config";
+import { isString } from "./helpers";
+import { WorkBook } from "./workbook";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const parse = <T = any[]>(mixed: unknown, options: Sheet2JSONOpts & ParsingOptions = {}) => {
-  const {dateNF, header = 1, range, blankrows, defval, raw = true, rawNumbers, ...otherOptions} = options;
+  const { dateNF, header = 1, range, blankrows, defval, raw = true, rawNumbers, ...otherOptions } = options;
   const workBook = isString(mixed)
-    ? readFile(mixed, {dateNF, raw, ...otherOptions})
-    : read(mixed, {dateNF, raw, ...otherOptions});
+    ? readFile(mixed, { dateNF, raw, ...otherOptions })
+    : read(mixed, { dateNF, raw, ...otherOptions });
   return Object.keys(workBook.Sheets).map((name) => {
-    const sheet = workBook.Sheets[name];
+    const sheet = workBook.Sheets[name]!;
     return {
       name,
       data: utils.sheet_to_json<T>(sheet, {
         dateNF,
         header,
-        range: typeof range === 'function' ? range(sheet) : range,
+        range: typeof range === "function" ? range(sheet) : range,
         blankrows,
         defval,
         raw,
@@ -42,26 +43,26 @@ export const parse = <T = any[]>(mixed: unknown, options: Sheet2JSONOpts & Parsi
 export const parseMetadata = (mixed: unknown, options: ParsingOptions = {}) => {
   const workBook = isString(mixed) ? readFile(mixed, options) : read(mixed, options);
   return Object.keys(workBook.Sheets).map((name) => {
-    const sheet = workBook.Sheets[name];
-    return {name, data: sheet['!ref'] ? utils.decode_range(sheet['!ref']) : null};
+    const sheet = workBook.Sheets[name]!;
+    return { name, data: sheet["!ref"] ? utils.decode_range(sheet["!ref"]) : null };
   });
 };
 
 export type WorkSheetOptions = {
   /** Column Info */
-  '!cols'?: ColInfo[];
+  "!cols"?: ColInfo[];
 
   /** Row Info */
-  '!rows'?: RowInfo[];
+  "!rows"?: RowInfo[];
 
   /** Merge Ranges */
-  '!merges'?: Range[];
+  "!merges"?: Range[];
 
   /** Worksheet Protection info */
-  '!protect'?: ProtectInfo;
+  "!protect"?: ProtectInfo;
 
   /** AutoFilter info */
-  '!autofilter'?: AutoFilterInfo;
+  "!autofilter"?: AutoFilterInfo;
 };
 
 export type WorkSheet<T = unknown> = {
@@ -78,26 +79,26 @@ export type BuildOptions = WorkSheetOptions & {
 
 export const build = (
   worksheets: WorkSheet[],
-  {parseOptions = {}, writeOptions = {}, sheetOptions = {}, ...otherOptions}: BuildOptions = {}
+  { parseOptions = {}, writeOptions = {}, sheetOptions = {}, ...otherOptions }: BuildOptions = {},
 ): Buffer => {
-  const {bookType = 'xlsx', bookSST = false, type = 'buffer', ...otherWriteOptions} = writeOptions;
+  const { bookType = "xlsx", bookSST = false, type = "buffer", ...otherWriteOptions } = writeOptions;
   const legacyOptions = Object.keys(otherOptions).filter((key) => {
-    if (['!cols', '!rows', '!merges', '!protect', '!autofilter'].includes(key)) {
+    if (["!cols", "!rows", "!merges", "!protect", "!autofilter"].includes(key)) {
       console.debug(`Deprecated options['${key}'], please use options.sheetOptions['${key}'] instead.`);
       return true;
     }
     console.debug(`Unknown options['${key}'], please use options.parseOptions / options.writeOptions`);
     return false;
   });
-  const workBook = worksheets.reduce<WorkBook>((soFar, {name, data, options = {}}, index) => {
+  const workBook = worksheets.reduce<WorkBook>((soFar, { name, data, options = {} }, index) => {
     const sheetName = name || `Sheet_${index}`;
     const sheetData = utils.aoa_to_sheet(data, parseOptions);
     soFar.SheetNames.push(sheetName);
     soFar.Sheets[sheetName] = sheetData;
-    Object.assign(soFar.Sheets[sheetName], legacyOptions, sheetOptions, options);
+    Object.assign(soFar.Sheets[sheetName]!, legacyOptions, sheetOptions, options);
     return soFar;
   }, new WorkBook());
-  return write(workBook, {bookType, bookSST, type, ...otherWriteOptions});
+  return write(workBook, { bookType, bookSST, type, ...otherWriteOptions });
 };
 
-export default {parse, parseMetadata, build};
+export default { parse, parseMetadata, build };
