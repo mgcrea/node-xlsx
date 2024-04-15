@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ["lts/-1", "lts/*"]
+        node: ["lts/-2", "lts/-1", "lts/*"]
     name: Test on node@v${{ matrix.node }}
     steps:
       - name: Checkout 🛎️
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ["lts/-1", "lts/*"]
+        node: ["lts/-2", "lts/-1", "lts/*"]
     name: Build on node@v${{ matrix.node }}
     steps:
       - name: Checkout 🛎️
