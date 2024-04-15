@@ -16,7 +16,7 @@
     <img src="https://img.shields.io/npm/l/node-xlsx.svg?style=for-the-badge" alt="npm license" />
   </a>
   <a href="https://github.com/mgcrea/node-xlsx/actions/workflows/main.yml">
-    <img src="https://img.shields.io/github/workflow/status/mgcrea/node-xlsx/main?style=for-the-badge" alt="github main workflow" />
+    <img src="https://img.shields.io/github/actions/workflow/status/mgcrea/node-xlsx/main.yml?style=for-the-badge&branch=master" alt="build status" />
   </a>
 </p>
 
