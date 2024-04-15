@@ -36,16 +36,12 @@
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.2/xlsx-0.20.2.tgz"
   },
   "devDependencies": {
-    "@jest/globals": "^29.7.0",
     "@mgcrea/eslint-config-node": "^0.10.0",
     "@tsconfig/node-lts": "^20.1.1",
-    "@tsconfig/strictest": "^2.0.3",
     "@types/node": "^20.12.7",
     "eslint": "^8.57.0",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
-    "rimraf": "^5.0.5",
-    "ts-node": "^10.9.2",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5",
     "vite-tsconfig-paths": "^4.3.2",
