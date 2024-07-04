@@ -75,7 +75,7 @@ export type WorkSheetOptions = {
 export type WorkSheet<T = unknown> = {
   name: string;
   data: T[][];
-  options: WorkSheetOptions;
+  options?: WorkSheetOptions;
 };
 
 export type BuildOptions = WorkSheetOptions & {
