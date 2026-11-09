@@ -1,6 +1,6 @@
 {
   "name": "node-xlsx",
-  "version": "0.24.0",
+  "version": "0.25.0",
   "description": "NodeJS Excel files parser & builder",
   "keywords": [
     "builder",
