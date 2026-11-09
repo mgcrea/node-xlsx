@@ -49,6 +49,17 @@ describe("node-xlsx parser", () => {
     );
     expect(result).toEqual(expected);
   });
+  it("should give a range function a sheet it can read cells from", () => {
+    const file = "test/fixtures/test.xlsx";
+    let firstCell: unknown;
+    parseXSLX(file, {
+      range: (sheet: xlsx.WorkSheet) => {
+        firstCell = sheet["A1"]?.v;
+        return sheet["!ref"];
+      },
+    });
+    expect(firstCell).toBeDefined();
+  });
 });
 
 describe("node-xlsx parser codepages", () => {

@@ -29,7 +29,9 @@ const readWorkBook = (mixed: unknown, options: ParsingOptions) => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const parse = <T = any[]>(mixed: unknown, options: Sheet2JSONOpts & ParsingOptions = {}) => {
   const { dateNF, header = 1, range, blankrows, defval, raw = true, rawNumbers, ...otherOptions } = options;
-  const workBook = readWorkBook(mixed, { dateNF, raw, ...otherOptions });
+  // Dense sheets parse faster and lighter (#213), but a range function may read cells by address, which
+  // only sparse sheets allow
+  const workBook = readWorkBook(mixed, { dateNF, raw, dense: typeof range !== "function", ...otherOptions });
   return Object.keys(workBook.Sheets).map((name) => {
     const sheet = workBook.Sheets[name]!;
     return {
