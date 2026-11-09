@@ -24,7 +24,8 @@
 
 Straightforward excel file parser and builder.
 
-- Relies on [SheetJS xlsx](https://github.com/SheetJS/sheetjs) module to parse/build excel sheets.
+- Relies on [SheetJS](https://sheetjs.com) to parse and build excel sheets. SheetJS is no longer published on npm, so
+  node-xlsx bundles it (Community Edition 0.20.3, Apache-2.0) and installs with no dependencies.
 - Built with [TypeScript](https://www.typescriptlang.org/) for static type checking with exported types along the
   library.
 
@@ -146,15 +147,7 @@ Refer to [xlsx](https://sheetjs.gitbooks.io) documentation for valid structure a
 
 ### Troubleshooting
 
-This library requires at least node.js v10. For legacy versions, you can use this workaround before using the lib.
-
-```sh
-npm i --save object-assign
-```
-
-```js
-Object.prototype.assign = require("object-assign");
-```
+This library requires node.js v18 or later. It reads files from disk, so it runs on node only, not in the browser.
 
 ### Contributing
 
@@ -163,14 +156,16 @@ you should include relevant unit tests. Thanks!
 
 ### Available scripts
 
-| **Script**    | **Description**                |
-| ------------- | ------------------------------ |
-| start         | Alias of test:watch            |
-| test          | Run mocha unit tests           |
-| test:watch    | Run and watch mocha unit tests |
-| lint          | Run eslint static tests        |
-| compile       | Compile the library            |
-| compile:watch | Compile and watch the library  |
+| **Script**   | **Description**                     |
+| ------------ | ----------------------------------- |
+| start        | Run and watch the unit tests        |
+| test         | Lint, format check, types and tests |
+| spec         | Run the vitest unit tests           |
+| lint         | Run oxlint                          |
+| format       | Format with oxfmt                   |
+| format:check | Check formatting with oxfmt         |
+| typecheck    | Run tsc                             |
+| build        | Build the library with tsdown       |
 
 ## Authors
 

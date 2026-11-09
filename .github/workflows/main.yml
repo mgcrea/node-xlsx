@@ -18,9 +18,7 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
       - name: Setup pnpm 🔧
-        uses: pnpm/action-setup@v3
-        with:
-          version: 8
+        uses: pnpm/action-setup@v4
       - name: Setup node 🔧
         uses: actions/setup-node@v4
         with:
@@ -31,8 +29,8 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Lint 🔍
         run: pnpm run lint
-      - name: Prettier 🔍
-        run: pnpm run prettycheck
+      - name: Format 🔍
+        run: pnpm run format:check
       - name: TypeScript 🔍
         run: pnpm run typecheck
       - name: Vitest 🔍
@@ -47,9 +45,7 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
       - name: Setup pnpm 🔧
-        uses: pnpm/action-setup@v3
-        with:
-          version: 8
+        uses: pnpm/action-setup@v4
       - name: Setup node 🔧
         uses: actions/setup-node@v4
         with:
