@@ -2,12 +2,7 @@
   "extends": ["@tsconfig/node-lts/tsconfig.json"],
   "compilerOptions": {
     "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "baseUrl": ".",
-    "paths": {
-      "src/*": ["./src/*"],
-      "test/*": ["./test/*"]
-    }
+    "moduleResolution": "Bundler"
   },
   "include": ["src", "test"]
 }

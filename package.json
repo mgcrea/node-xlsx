@@ -57,8 +57,8 @@
     "oxlint": "^1.93.0",
     "tsdown": "^0.23.7",
     "typescript": "^5.9.3",
-    "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.2.7",
+    "vite": "^8.3.7",
+    "vitest": "^5.1.0",
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   },
   "engines": {
