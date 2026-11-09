@@ -13,23 +13,33 @@
   "author": "Olivier Louvignes <olivier@mg-crea.com>",
   "repository": "github:mgcrea/node-xlsx",
   "bin": {
-    "node-xlsx": "./dist/bin/cli.js"
+    "node-xlsx": "./dist/bin/cli.mjs"
   },
   "files": [
-    "dist"
+    "dist",
+    "NOTICE",
+    "LICENSE-SheetJS"
   ],
   "type": "module",
   "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "start": "npm run spec -- --watch",
-    "build": "tsup --entry src/index.ts --format cjs,esm --sourcemap --dts --clean --entry src/bin/cli.ts",
+    "build": "tsdown",
     "lint": "oxlint .",
     "typecheck": "tsc --noEmit",
     "spec": "DEBUG=node-xlsx* vitest --run",
@@ -40,20 +50,19 @@
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check ."
   },
-  "dependencies": {
-    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.2/xlsx-0.20.2.tgz"
-  },
   "devDependencies": {
     "@tsconfig/node-lts": "^20.1.1",
-    "@types/node": "^20.12.7",
+    "@types/node": "^20.19.43",
     "oxfmt": "^0.78.0",
     "oxlint": "^1.93.0",
-    "tsup": "^8.0.2",
-    "typescript": "^5.4.5",
-    "vite-tsconfig-paths": "^4.3.2",
-    "vitest": "^1.5.0"
+    "tsdown": "^0.23.7",
+    "typescript": "^5.9.3",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.7",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   },
   "engines": {
-    "node": ">=10.0.0"
-  }
+    "node": ">=18"
+  },
+  "packageManager": "pnpm@10.33.2"
 }

@@ -1,0 +1,7 @@
+node-xlsx
+Copyright (c) 2013-present Olivier Louvignes
+
+This package bundles SheetJS Community Edition 0.20.3 (https://sheetjs.com),
+including its codepage tables (codepage.js), both
+Copyright (C) 2013-present SheetJS LLC, licensed under the Apache License, Version 2.0.
+The full license text is in LICENSE-SheetJS.
