@@ -18,6 +18,22 @@ import "./config";
 import { isString } from "./helpers";
 import { WorkBook } from "./workbook";
 
+// SheetJS is bundled, so re-export the types its signatures use, letting consumers name them (eg. when emitting
+// declarations) without installing xlsx themselves
+export type {
+  AOA2SheetOpts,
+  AutoFilterInfo,
+  CellAddress,
+  ColInfo,
+  ParsingOptions,
+  ProtectInfo,
+  Range,
+  RowInfo,
+  Sheet2JSONOpts,
+  WorkSheet as SheetJSWorkSheet,
+  WritingOptions,
+} from "xlsx";
+
 const readWorkBook = (mixed: unknown, options: ParsingOptions) => {
   if (isString(mixed)) {
     return readFile(mixed, options);

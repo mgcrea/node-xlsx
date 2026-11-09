@@ -20,5 +20,8 @@
 ### Changed
 
 - Parsing reads sheets in dense mode, about 20% faster and lighter on large sheets (#213, from #218, thanks
-  @DokiDoki1103). Sheets stay sparse when `range` is a function.
-- SheetJS updated to 0.20.3.
+  @DokiDoki1103). Sheets stay sparse when `range` is a function or `defval` is set.
+- SheetJS updated to 0.20.3. It parses `#DIV/0!` and other error values in a CSV as error cells, so they no longer
+  come back as strings with `raw: false`.
+- The SheetJS types used by the API (`ParsingOptions`, `Sheet2JSONOpts`, `Range`, ...) are exported, with SheetJS's own
+  `WorkSheet` as `SheetJSWorkSheet`.
