@@ -18,12 +18,18 @@ import "./config";
 import { isString } from "./helpers";
 import { WorkBook } from "./workbook";
 
+const readWorkBook = (mixed: unknown, options: ParsingOptions) => {
+  if (isString(mixed)) {
+    return readFile(mixed, options);
+  }
+  // Without an explicit type, SheetJS reads a Buffer as a plain array and skips codepage decoding (#198)
+  return read(mixed, Buffer.isBuffer(mixed) ? { type: "buffer", ...options } : options);
+};
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const parse = <T = any[]>(mixed: unknown, options: Sheet2JSONOpts & ParsingOptions = {}) => {
   const { dateNF, header = 1, range, blankrows, defval, raw = true, rawNumbers, ...otherOptions } = options;
-  const workBook = isString(mixed)
-    ? readFile(mixed, { dateNF, raw, ...otherOptions })
-    : read(mixed, { dateNF, raw, ...otherOptions });
+  const workBook = readWorkBook(mixed, { dateNF, raw, ...otherOptions });
   return Object.keys(workBook.Sheets).map((name) => {
     const sheet = workBook.Sheets[name]!;
     return {
@@ -42,7 +48,7 @@ export const parse = <T = any[]>(mixed: unknown, options: Sheet2JSONOpts & Parsi
 };
 
 export const parseMetadata = (mixed: unknown, options: ParsingOptions = {}) => {
-  const workBook = isString(mixed) ? readFile(mixed, options) : read(mixed, options);
+  const workBook = readWorkBook(mixed, options);
   return Object.keys(workBook.Sheets).map((name) => {
     const sheet = workBook.Sheets[name]!;
     return { name, data: sheet["!ref"] ? utils.decode_range(sheet["!ref"]) : null };

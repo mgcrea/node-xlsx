@@ -50,3 +50,13 @@ describe("node-xlsx parser", () => {
     expect(result).toEqual(expected);
   });
 });
+
+describe("node-xlsx parser codepages", () => {
+  // Codepages other than the built-in windows ones need the tables from cpexcel (#198)
+  it("should decode a shift_jis CSV buffer", () => {
+    // "日本" in shift_jis
+    const buffer = Buffer.from([0x93, 0xfa, 0x96, 0x7b, 0x0a]);
+    const [sheet] = parseXSLX(buffer, { codepage: 932 });
+    expect(sheet!.data).toEqual([["日本"]]);
+  });
+});
