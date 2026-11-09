@@ -60,6 +60,18 @@ describe("node-xlsx parser", () => {
     });
     expect(firstCell).toBeDefined();
   });
+  it("should fill blank rows with defval", () => {
+    const sheet = xlsx.utils.aoa_to_sheet([["a", "b"], [], [1, 2]]);
+    const buffer = xlsx.write(
+      { SheetNames: ["s"], Sheets: { s: sheet } },
+      { type: "buffer", bookType: "xlsx" },
+    );
+    expect(parseXSLX(buffer, { defval: null })[0]!.data).toEqual([
+      ["a", "b"],
+      [null, null],
+      [1, 2],
+    ]);
+  });
 });
 
 describe("node-xlsx parser codepages", () => {
@@ -69,5 +81,12 @@ describe("node-xlsx parser codepages", () => {
     const buffer = Buffer.from([0x93, 0xfa, 0x96, 0x7b, 0x0a]);
     const [sheet] = parseXSLX(buffer, { codepage: 932 });
     expect(sheet!.data).toEqual([["日本"]]);
+  });
+  it("should decode a utf8 CSV with a BOM when given codepage 65001", () => {
+    const buffer = Buffer.from("\ufeffé,ü\nJosé,x\n");
+    expect(parseXSLX(buffer, { codepage: 65001 })[0]!.data).toEqual([
+      ["é", "ü"],
+      ["José", "x"],
+    ]);
   });
 });

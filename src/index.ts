@@ -22,16 +22,20 @@ const readWorkBook = (mixed: unknown, options: ParsingOptions) => {
   if (isString(mixed)) {
     return readFile(mixed, options);
   }
-  // Without an explicit type, SheetJS reads a Buffer as a plain array and skips codepage decoding (#198)
-  return read(mixed, Buffer.isBuffer(mixed) ? { type: "buffer", ...options } : options);
+  // Without an explicit type, SheetJS reads a Buffer as a plain array and skips codepage decoding (#198). Only
+  // force it for a non-utf8 codepage: with codepage 65001, the array path is the one that handles a BOM
+  const { codepage } = options;
+  const needsBufferType = Buffer.isBuffer(mixed) && codepage !== undefined && codepage !== 65001;
+  return read(mixed, needsBufferType ? { type: "buffer", ...options } : options);
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const parse = <T = any[]>(mixed: unknown, options: Sheet2JSONOpts & ParsingOptions = {}) => {
   const { dateNF, header = 1, range, blankrows, defval, raw = true, rawNumbers, ...otherOptions } = options;
-  // Dense sheets parse faster and lighter (#213), but a range function may read cells by address, which
-  // only sparse sheets allow
-  const workBook = readWorkBook(mixed, { dateNF, raw, dense: typeof range !== "function", ...otherOptions });
+  // Dense sheets parse faster and lighter (#213), but a range function may read cells by address, which only
+  // sparse sheets allow, and sheet_to_json does not fill blank dense rows with defval
+  const dense = typeof range !== "function" && defval === undefined;
+  const workBook = readWorkBook(mixed, { dateNF, raw, dense, ...otherOptions });
   return Object.keys(workBook.Sheets).map((name) => {
     const sheet = workBook.Sheets[name]!;
     return {
