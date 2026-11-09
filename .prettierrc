@@ -1,4 +1,0 @@
-{
-  "printWidth": 110,
-  "plugins": ["prettier-plugin-organize-imports"]
-}

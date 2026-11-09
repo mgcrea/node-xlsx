@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import xlsx from "xlsx";
+
 import { parse as parseXSLX } from "../../src";
 import { readBufferFixture, readFixture } from "../utils";
 

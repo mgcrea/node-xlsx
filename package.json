@@ -1,8 +1,23 @@
 {
   "name": "node-xlsx",
-  "author": "Olivier Louvignes <olivier@mg-crea.com>",
   "version": "0.24.0",
   "description": "NodeJS Excel files parser & builder",
+  "keywords": [
+    "builder",
+    "excel",
+    "parser",
+    "xls",
+    "xlsx"
+  ],
+  "license": "Apache-2.0",
+  "author": "Olivier Louvignes <olivier@mg-crea.com>",
+  "repository": "github:mgcrea/node-xlsx",
+  "bin": {
+    "node-xlsx": "./dist/bin/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "main": "./dist/index.cjs",
   "exports": {
@@ -12,36 +27,27 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "bin": {
-    "node-xlsx": "./dist/bin/cli.js"
-  },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "start": "npm run spec -- --watch",
     "build": "tsup --entry src/index.ts --format cjs,esm --sourcemap --dts --clean --entry src/bin/cli.ts",
-    "lint": "eslint src/ test/",
-    "prettycheck": "prettier --check src/ test/",
-    "prettify": "prettier --write src/ test/",
+    "lint": "oxlint .",
     "typecheck": "tsc --noEmit",
     "spec": "DEBUG=node-xlsx* vitest --run",
     "watch": "DEBUG=node-xlsx* vitest --watch",
-    "test": "npm run lint && npm run prettycheck && npm run typecheck && npm run spec",
-    "prepublishOnly": "npm run build"
+    "test": "pnpm run lint && pnpm run format:check && pnpm run typecheck && pnpm run spec",
+    "prepublishOnly": "npm run build",
+    "lint:fix": "oxlint --fix .",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check ."
   },
-  "repository": "github:mgcrea/node-xlsx",
-  "license": "Apache-2.0",
   "dependencies": {
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.2/xlsx-0.20.2.tgz"
   },
   "devDependencies": {
-    "@mgcrea/eslint-config-node": "^0.10.0",
     "@tsconfig/node-lts": "^20.1.1",
     "@types/node": "^20.12.7",
-    "eslint": "^8.57.0",
-    "prettier": "^3.2.5",
-    "prettier-plugin-organize-imports": "^3.2.4",
+    "oxfmt": "^0.78.0",
+    "oxlint": "^1.93.0",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5",
     "vite-tsconfig-paths": "^4.3.2",
@@ -49,12 +55,5 @@
   },
   "engines": {
     "node": ">=10.0.0"
-  },
-  "keywords": [
-    "excel",
-    "parser",
-    "builder",
-    "xlsx",
-    "xls"
-  ]
+  }
 }

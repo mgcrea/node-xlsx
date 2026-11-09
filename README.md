@@ -41,7 +41,7 @@ pnpm add node-xlsx
 ### Parse an xlsx file
 
 ```js
-import xlsx from 'node-xlsx';
+import xlsx from "node-xlsx";
 // Or var xlsx = require('node-xlsx').default;
 
 // Parse a buffer
@@ -53,77 +53,77 @@ const workSheetsFromFile = xlsx.parse(`${__dirname}/myFile.xlsx`);
 ### Build an xlsx file
 
 ```js
-import xlsx from 'node-xlsx';
+import xlsx from "node-xlsx";
 // Or var xlsx = require('node-xlsx').default;
 
 const data = [
   [1, 2, 3],
-  [true, false, null, 'sheetjs'],
-  ['foo', 'bar', new Date('2014-02-19T14:30Z'), '0.3'],
-  ['baz', null, 'qux'],
+  [true, false, null, "sheetjs"],
+  ["foo", "bar", new Date("2014-02-19T14:30Z"), "0.3"],
+  ["baz", null, "qux"],
 ];
-var buffer = xlsx.build([{name: 'mySheetName', data: data}]); // Returns a buffer
+var buffer = xlsx.build([{ name: "mySheetName", data: data }]); // Returns a buffer
 ```
 
 ### Custom column width
 
 ```js
-import xlsx from 'node-xlsx';
+import xlsx from "node-xlsx";
 // Or var xlsx = require('node-xlsx').default;
 
 const data = [
   [1, 2, 3],
-  [true, false, null, 'sheetjs'],
-  ['foo', 'bar', new Date('2014-02-19T14:30Z'), '0.3'],
-  ['baz', null, 'qux'],
+  [true, false, null, "sheetjs"],
+  ["foo", "bar", new Date("2014-02-19T14:30Z"), "0.3"],
+  ["baz", null, "qux"],
 ];
-const sheetOptions = {'!cols': [{wch: 6}, {wch: 7}, {wch: 10}, {wch: 20}]};
+const sheetOptions = { "!cols": [{ wch: 6 }, { wch: 7 }, { wch: 10 }, { wch: 20 }] };
 
-var buffer = xlsx.build([{name: 'mySheetName', data: data}], {sheetOptions}); // Returns a buffer
+var buffer = xlsx.build([{ name: "mySheetName", data: data }], { sheetOptions }); // Returns a buffer
 ```
 
 ### Spanning multiple rows `A1:A4` in every sheets
 
 ```js
-import xlsx from 'node-xlsx';
+import xlsx from "node-xlsx";
 // Or var xlsx = require('node-xlsx').default;
 
 const data = [
   [1, 2, 3],
-  [true, false, null, 'sheetjs'],
-  ['foo', 'bar', new Date('2014-02-19T14:30Z'), '0.3'],
-  ['baz', null, 'qux'],
+  [true, false, null, "sheetjs"],
+  ["foo", "bar", new Date("2014-02-19T14:30Z"), "0.3"],
+  ["baz", null, "qux"],
 ];
-const range = {s: {c: 0, r: 0}, e: {c: 0, r: 3}}; // A1:A4
-const sheetOptions = {'!merges': [range]};
+const range = { s: { c: 0, r: 0 }, e: { c: 0, r: 3 } }; // A1:A4
+const sheetOptions = { "!merges": [range] };
 
-var buffer = xlsx.build([{name: 'mySheetName', data: data}], {sheetOptions}); // Returns a buffer
+var buffer = xlsx.build([{ name: "mySheetName", data: data }], { sheetOptions }); // Returns a buffer
 ```
 
 ### Spanning multiple rows `A1:A4` in second sheet
 
 ```js
-import xlsx from 'node-xlsx';
+import xlsx from "node-xlsx";
 // Or var xlsx = require('node-xlsx').default;
 
 const dataSheet1 = [
   [1, 2, 3],
-  [true, false, null, 'sheetjs'],
-  ['foo', 'bar', new Date('2014-02-19T14:30Z'), '0.3'],
-  ['baz', null, 'qux'],
+  [true, false, null, "sheetjs"],
+  ["foo", "bar", new Date("2014-02-19T14:30Z"), "0.3"],
+  ["baz", null, "qux"],
 ];
 const dataSheet2 = [
   [4, 5, 6],
   [7, 8, 9, 10],
   [11, 12, 13, 14],
-  ['baz', null, 'qux'],
+  ["baz", null, "qux"],
 ];
-const range = {s: {c: 0, r: 0}, e: {c: 0, r: 3}}; // A1:A4
-const sheetOptions = {'!merges': [range]};
+const range = { s: { c: 0, r: 0 }, e: { c: 0, r: 3 } }; // A1:A4
+const sheetOptions = { "!merges": [range] };
 
 var buffer = xlsx.build([
-  {name: 'myFirstSheet', data: dataSheet1},
-  {name: 'mySecondSheet', data: dataSheet2, options: sheetOptions},
+  { name: "myFirstSheet", data: dataSheet1 },
+  { name: "mySecondSheet", data: dataSheet2, options: sheetOptions },
 ]); // Returns a buffer
 ```
 
@@ -134,8 +134,8 @@ _Beware that if you try to merge several times the same cell, your xlsx file wil
 Examples:
 
 ```js
-const rowAverage = [[{t: 'n', z: 10, f: '=AVERAGE(2:2)'}], [1, 2, 3]];
-var buffer = xlsx.build([{name: 'Average Formula', data: rowAverage}]);
+const rowAverage = [[{ t: "n", z: 10, f: "=AVERAGE(2:2)" }], [1, 2, 3]];
+var buffer = xlsx.build([{ name: "Average Formula", data: rowAverage }]);
 ```
 
 Refer to [xlsx](https://sheetjs.gitbooks.io) documentation for valid structure and values:
@@ -153,7 +153,7 @@ npm i --save object-assign
 ```
 
 ```js
-Object.prototype.assign = require('object-assign');
+Object.prototype.assign = require("object-assign");
 ```
 
 ### Contributing
