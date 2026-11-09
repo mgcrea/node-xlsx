@@ -89,14 +89,15 @@ export const build = (
   { parseOptions = {}, writeOptions = {}, sheetOptions = {}, ...otherOptions }: BuildOptions = {},
 ): Buffer => {
   const { bookType = "xlsx", bookSST = false, type = "buffer", ...otherWriteOptions } = writeOptions;
-  const legacyOptions = Object.keys(otherOptions).filter((key) => {
+  const legacyOptions: WorkSheetOptions = {};
+  for (const [key, value] of Object.entries(otherOptions)) {
     if (["!cols", "!rows", "!merges", "!protect", "!autofilter"].includes(key)) {
       console.debug(`Deprecated options['${key}'], please use options.sheetOptions['${key}'] instead.`);
-      return true;
+      Object.assign(legacyOptions, { [key]: value });
+      continue;
     }
     console.debug(`Unknown options['${key}'], please use options.parseOptions / options.writeOptions`);
-    return false;
-  });
+  }
   const workBook = worksheets.reduce<WorkBook>((soFar, { name, data, options = {} }, index) => {
     const sheetName = name || `Sheet_${index}`;
     const sheetData = utils.aoa_to_sheet(data, parseOptions);

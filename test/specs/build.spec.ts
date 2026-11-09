@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import xlsx from "xlsx";
 
 import { build as buildXSLX } from "../../src";
 import { readBufferFixture, readFixture } from "../utils";
@@ -35,9 +36,12 @@ describe("node-xlsx builder", () => {
   });
   it("should handle global legacy options", () => {
     const worksheets = JSON.parse(readFixture(`test.json`));
-    const result = buildXSLX(worksheets, {
-      "!merges": [{ s: { c: 0, r: 0 }, e: { c: 0, r: 3 } }],
-    });
+    const merge = { s: { c: 0, r: 0 }, e: { c: 0, r: 3 } };
+    const result = buildXSLX(worksheets, { "!merges": [merge] });
     expect(result instanceof Buffer).toBeTruthy();
+    const workBook = xlsx.read(result, { type: "buffer" });
+    for (const name of workBook.SheetNames) {
+      expect(workBook.Sheets[name]!["!merges"]).toEqual([merge]);
+    }
   });
 });
